@@ -8,8 +8,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                brand: "#22d69f", // ví dụ thêm màu custom
-                
+                brand: "#22d69f",
+
             },
         },
     },

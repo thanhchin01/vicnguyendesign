@@ -11,7 +11,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
     {{-- Gọi phần menu --}}
-    @include('layouts.top')
+    @include('figmaUI.layouts.top')
 
     {{-- Nội dung chính --}}
     <main class="flex-grow">
@@ -19,6 +19,6 @@
     </main>
 
     {{-- Gọi phần footer --}}
-    @include('layouts.footer')
+    @include('figmaUI.layouts.footer')
 </body>
 </html>

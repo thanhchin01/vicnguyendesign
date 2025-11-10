@@ -2,16 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
     return view('layouts/welcome');
 });
 
 Route::get('/', function () {
-    return view('includes/top');
+    return view('layouts/top');
 });
 
 Route::get('/', function () {
-    return view('includes/footer');
+    return view('layouts/footer');
 });
 
 Route::get('/', function () {
@@ -39,3 +40,53 @@ Route::get('/contact', function () {
 });
 
 
+// ===== SITE MỚI =====
+Route::prefix('new')->group(function () {
+    Route::get('/', function () {
+        return view('figmaUI.layouts.top');
+    });
+
+    Route::get('/', function () {
+        return view('figmaUI.layouts.footer');
+    });
+
+    Route::get('/', function () {
+        return view('figmaUI.layouts.welcome');
+    });
+
+    Route::get('/', function () {
+        return view('figmaUI.pages.splash');
+    })->name('new.splash');
+
+    Route::get('/project', function () {
+        return view('figmaUI.pages.project_home');
+    });
+
+    Route::get('/project/details-project', function () {
+        return view('figmaUI.pages.project_details');
+    });
+
+    Route::get('/studio', function () {
+        return view('figmaUI.pages.studio');
+    });
+
+    Route::get('/member', function () {
+        return view('figmaUI.pages.member');
+    });
+
+    Route::get('/news', function () {
+        return view('figmaUI.pages.news');
+    });
+
+    Route::get('/news/details', function () {
+        return view('figmaUI.pages.news_details');
+    });
+
+    Route::get('/address', function () {
+        return view('figmaUI.pages.address');
+    });
+
+    Route::get('/contact', function () {
+        return view('figmaUI.pages.contact');
+    });
+});

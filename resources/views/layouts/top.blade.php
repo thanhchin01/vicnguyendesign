@@ -13,11 +13,11 @@
 
         <!-- Menu chính -->
         <ul id="menu" class="hidden md:flex gap-6 text-sm">
-            <li><a href=" {{ url('portfolio') }} " class="font-semibold text-gray-300 hover:text-white transition">Portfolio</a></li>
-            <li><a href=" {{ url('model') }} " class="font-semibold text-gray-300 hover:text-white transition">Model</a></li>
-            <li><a href=" {{ url('team') }} " class="font-semibold text-gray-300 hover:text-white transition">Team</a></li>
-            <li><a href=" {{ url('about') }} " class="font-semibold text-gray-300 hover:text-white transition">About</a></li>
-            <li><a href=" {{ url('contact') }} " class="font-semibold text-gray-300 hover:text-white transition">Contact</a></li>
+            <li><a href=" {{ url('portfolio') }} " class="font-semibold text-gray-300 transition {{ Request::is('portfolio') ? 'text-white' : 'hover:text-white' }}">Portfolio</a></li>
+            <li><a href=" {{ url('model') }} " class="font-semibold text-gray-300 transition {{ Request::is('model') ? 'text-white' : 'hover:text-white' }}">Model</a></li>
+            <li><a href=" {{ url('team') }} " class="font-semibold text-gray-300 transition {{ Request::is('team') ? 'text-white' : 'hover:text-white' }}">Team</a></li>
+            <li><a href=" {{ url('about') }} " class="font-semibold text-gray-300 transition {{ Request::is('about') ? 'text-white' : 'hover:text-white' }}">About</a></li>
+            <li><a href=" {{ url('contact') }} " class="font-semibold text-gray-300 transition {{ Request::is('contact') ? 'text-white' : 'hover:text-white' }}">Contact</a></li>
         </ul>
     </div>
 

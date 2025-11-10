@@ -13,12 +13,13 @@
 
     <!-- Phần slogan nằm giữa -->
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 animate-fadeIn">
-        <a href=" {{url('home')}} " id="logo">
+        <a href=" {{ url('home') }} " id="logo">
             <img src="https://vicnguyendesign.org/frontend/images/logo.png" alt="Logo"
                 class="w-32 md:w-48 mb-4 rounded-xl shadow-lg">
         </a>
         <p class="max-w-2xl text-sm md:text-lg leading-relaxed">
-            "We aim to, at all times, provide our customers with the most Beautiful 3D Images, Attractive, Powerful &amp;
+            "We aim to, at all times, provide our customers with the most Beautiful 3D Images, Attractive, Powerful
+            &amp;
             as close to Reality as possible, through Digital Art."
         </p>
     </div>
@@ -26,12 +27,19 @@
 
 <!-- Hiệu ứng mờ dần -->
 <style>
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.animate-fadeIn {
-    animation: fadeIn 1.5s ease-in-out forwards;
-}
-</style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
 
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 1.5s ease-in-out forwards;
+    }
+</style>
