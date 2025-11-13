@@ -6,7 +6,7 @@
     <section class="max-w-[1250px] mx-auto mt-5 p-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
             <a class="flex flex-col gap-3" href="{{ url('new/news/details') }}">
-                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('resources/assect/News/1.jpg') }}" alt="">
+                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('public/assect/News/1.jpg') }}" alt="">
                 <div class="flex justify-between items-center">
                     <h1 class="text-2xl font-semibold">THE BACKYARD HOUSE | VIC DAILY</h1>
                     <p>16/11/2025</p>
@@ -19,7 +19,7 @@
                 <p class="text-blue-500">Backyardhouse.vic.vn</p>
             </a>
              <a class="flex flex-col gap-3" href="{{ url('new/news/details') }}">
-                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('resources/assect/News/2.jpg') }}" alt="">
+                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('public/assect/News/2.jpg') }}" alt="">
                 <div class="flex justify-between items-center">
                     <h1 class="text-2xl font-semibold">THE BACKYARD HOUSE | VIC DAILY</h1>
                     <p>16/11/2025</p>
@@ -32,7 +32,7 @@
                 <p class="text-blue-500">Backyardhouse.vic.vn</p>
             </a>
             <a class="flex flex-col gap-3" href="{{ url('new/news/details') }}">
-                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('resources/assect/News/1.jpg') }}" alt="">
+                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('public/assect/News/1.jpg') }}" alt="">
                 <div class="flex justify-between items-center">
                     <h1 class="text-2xl font-semibold">THE BACKYARD HOUSE | VIC DAILY</h1>
                     <p>16/11/2025</p>
@@ -45,7 +45,7 @@
                 <p class="text-blue-500">Backyardhouse.vic.vn</p>
             </a>
             <a class="flex flex-col gap-3" href="{{ url('new/news/details') }}">
-                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('resources/assect/News/2.jpg') }}" alt="">
+                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('public/assect/News/2.jpg') }}" alt="">
                 <div class="flex justify-between items-center">
                     <h1 class="text-2xl font-semibold">THE BACKYARD HOUSE | VIC DAILY</h1>
                     <p>16/11/2025</p>
@@ -58,7 +58,7 @@
                 <p class="text-blue-500">Backyardhouse.vic.vn</p>
             </a>
             <a class="flex flex-col gap-3" href="{{ url('new/news/details') }}">
-                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('resources/assect/News/1.jpg') }}" alt="">
+                <img class="w-full h-[400px] object-cover" src="{{ Vite::asset('public/assect/News/1.jpg') }}" alt="">
                 <div class="flex justify-between items-center">
                     <h1 class="text-2xl font-semibold">THE BACKYARD HOUSE | VIC DAILY</h1>
                     <p>16/11/2025</p>

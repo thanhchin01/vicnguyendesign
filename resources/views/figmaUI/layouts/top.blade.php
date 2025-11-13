@@ -4,7 +4,7 @@
         <a href="/new" class="flex items-center justify-center space-x-4">
             <!-- Logo -->
             <div class="px-3 flex items-center h-14 md:h-20">
-                <img src="{{ Vite::asset('resources/assect/Logo/1.png') }}" alt="Logo"
+                <img src="{{ Vite::asset('public/assect/Logo/1.png') }}" alt="Logo"
                     class="h-full object-contain rounded-xl">
             </div>
         </a>

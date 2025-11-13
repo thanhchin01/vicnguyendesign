@@ -7,7 +7,7 @@
         <h1 class="text-3xl font-base tracking-wide">ANPHA OFFICE / AD9 ARCHITECTS</h1>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-9">
             <div class="col-span-8 flex flex-col gap-6">
-                <img class="w-full object-cover" src="{{ Vite::asset('resources/assect/News/6.jpg') }}" alt="">
+                <img class="w-full object-cover" src="{{ Vite::asset('public/assect/News/6.jpg') }}" alt="">
                 <p>Text description provided by the architect. Anpha office was former after some big changes regarding its
                     function from the investor. At first, we were tasked with creating a house for 5 family members,
                     including a grandmother, a married couple and their two children. We are getting more accustomed to
@@ -15,7 +15,7 @@
                     to create spaces that are interactive and connective for family members. We reserved a large portion of
                     the length for the skylight, which is the main space to connect the rest of the spaces in the house, the
                     actives, the balance between stactic and non-static, air movement, light and nature</p>
-                <img class="w-full object-cover" src="{{ Vite::asset('resources/assect/News/7.jpg') }}" alt="">
+                <img class="w-full object-cover" src="{{ Vite::asset('public/assect/News/7.jpg') }}" alt="">
                 <p>
                     When the base of the construction was done, the investor shared with us his wish to convert the
                     construction`s functon to serve the purpose of running a mid-size family business, specializing in
@@ -27,7 +27,7 @@
                     other, they can indulge in the natural atmostphere, the freshness of the trees. This is a feature that
                     we are sure office in skycraper cannot benifit from.
                 </p>
-                <img class="w-full object-cover" src="{{ Vite::asset('resources/assect/News/8.jpg') }}" alt="">
+                <img class="w-full object-cover" src="{{ Vite::asset('public/assect/News/8.jpg') }}" alt="">
                 <p>
                     We`ve recordeded photos of AnPha company affter 2 operating years, in oder to fully understand that what
                     we cerated were going in the right direction, and to serve as inspiration for our future projects.
@@ -37,15 +37,15 @@
                 <div class="flex flex-col gap-4">
                     <h1 class="text-xl font-medium">BÀI VIẾT KHÁC</h1>
                     <a class="flex gap-1" href="">
-                        <img class="w-[150px] h-[150px] object-cover" src="{{ Vite::asset('resources/assect/News/3.png') }}" alt="">
+                        <img class="w-[150px] h-[150px] object-cover" src="{{ Vite::asset('public/assect/News/3.png') }}" alt="">
                         <p class="font-semibold">Refuge in the Valley | Zanesco Arquaitetura</p>
                     </a>
                     <a class="flex gap-1" href="">
-                        <img class="w-[150px] h-[150px] object-cover" src="{{ Vite::asset('resources/assect/News/4.jpg') }}" alt="">
+                        <img class="w-[150px] h-[150px] object-cover" src="{{ Vite::asset('public/assect/News/4.jpg') }}" alt="">
                         <p class="font-semibold">Refuge in the Valley | Zanesco Arquaitetura</p>
                     </a>
                     <a class="flex gap-1" href="">
-                        <img class="w-[150px] h-[150px] object-cover" src="{{ Vite::asset('resources/assect/News/5.png') }}" alt="">
+                        <img class="w-[150px] h-[150px] object-cover" src="{{ Vite::asset('public/assect/News/5.png') }}" alt="">
                         <p class="font-semibold">Refuge in the Valley | Zanesco Arquaitetura</p>
                     </a>
                 </div>

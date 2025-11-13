@@ -69,7 +69,7 @@
                     join: 'Trở thành VICer: 2003',
                     project: 'NGUYET HOUSE, DANANG VILLA, PHD',
                     prize: 'Giải Đồng - Giải thưởng Kiến Trúc Quốc gia 2024',
-                    image: "{{ Vite::asset('resources/assect/Avatar/1.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/1.png') }}"
                 },
                 {
                     name: 'PHAM XUAN HA',
@@ -78,7 +78,7 @@
                     join: 'Trở thành VICer: 2003',
                     project: 'NGUYET HOUSE, DANANG VILLA, PHD',
                     prize: 'Giải Đồng - Giải thưởng Kiến Trúc Quốc gia 2024',
-                    image: "{{ Vite::asset('resources/assect/Avatar/2.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/2.png') }}"
                 },
                 {
                     name: 'NGUYEN NGA',
@@ -87,7 +87,7 @@
                     join: 'Trở thành VICer: 2003',
                     project: 'NGUYET HOUSE, DANANG VILLA, PHD',
                     prize: 'Giải Đồng - Giải thưởng Kiến Trúc Quốc gia 2024',
-                    image: "{{ Vite::asset('resources/assect/Avatar/3.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/3.png') }}"
                 },
                 {
                     name: 'NGUYEN HOANG',
@@ -96,7 +96,7 @@
                     join: 'Trở thành VICer: 2003',
                     project: 'NGUYET HOUSE, DANANG VILLA, PHD',
                     prize: 'Giải Đồng - Giải thưởng Kiến Trúc Quốc gia 2024',
-                    image: "{{ Vite::asset('resources/assect/Avatar/4.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/4.png') }}"
                 },
                 {
                     name: 'NGUYEN THI NGA',
@@ -105,7 +105,7 @@
                     join: 'Trở thành VICer: 2021',
                     project: 'SUNHOUSE PROJECT, GREEN SPACE VILLA',
                     prize: 'Top 10 Render Vietnam 2023',
-                    image: "{{ Vite::asset('resources/assect/Avatar/3.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/3.png') }}"
                 },
                 {
                     name: 'LE THI LINH',
@@ -114,7 +114,7 @@
                     join: 'Trở thành VICer: 2019',
                     project: 'ECO VILLAGE, SKY GARDEN',
                     prize: 'Đề cử Kiến trúc xanh Việt Nam 2023',
-                    image: "{{ Vite::asset('resources/assect/Avatar/2.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/2.png') }}"
                 },
                 {
                     name: 'PHAN HUU DUY',
@@ -123,7 +123,7 @@
                     join: 'Trở thành VICer: 2019',
                     project: 'RIVER PARK, COFFEE SPACE',
                     prize: 'Giải thưởng Ánh sáng sáng tạo 2022',
-                    image: "{{ Vite::asset('resources/assect/Avatar/1.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/1.png') }}"
                 },
                 {
                     name: 'DO MINH TAM',
@@ -132,7 +132,7 @@
                     join: 'Trở thành VICer: 2020',
                     project: 'VILLA 08, LUXURY HOUSE',
                     prize: 'Giải Nhì Thiết kế Nội thất Việt Nam 2023',
-                    image: "{{ Vite::asset('resources/assect/Avatar/4.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/4.png') }}"
                 },
                 {
                     name: 'NGO HAI AN',
@@ -141,7 +141,7 @@
                     join: 'Trở thành VICer: 2021',
                     project: 'OCEAN VIEW, THE LIGHT HOUSE',
                     prize: 'Top 5 Render Awards 2024',
-                    image: "{{ Vite::asset('resources/assect/Avatar/2.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/2.png') }}"
                 },
                 {
                     name: 'VU THU TRANG',
@@ -150,7 +150,7 @@
                     join: 'Trở thành VICer: 2022',
                     project: 'GREEN CITY, SMART URBAN',
                     prize: 'Giải thưởng Nghiên cứu Trẻ 2023',
-                    image: "{{ Vite::asset('resources/assect/Avatar/3.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/3.png') }}"
                 },
                 {
                     name: 'TRAN CONG SON',
@@ -159,7 +159,7 @@
                     join: 'Trở thành VICer: 2020',
                     project: 'SKYLINE BUILDING, VIC TOWER',
                     prize: 'Best Project Coordination 2024',
-                    image: "{{ Vite::asset('resources/assect/Avatar/1.png') }}"
+                    image: "{{ Vite::asset('public/assect/Avatar/1.png') }}"
                 }
             ],
             openModal(index) {

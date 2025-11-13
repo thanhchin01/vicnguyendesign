@@ -8,10 +8,10 @@
             <div x-data="{
                 active: 0,
                 slides: [
-                    '{{ Vite::asset('resources/assect/Studio/1.jpg') }}',
-                    '{{ Vite::asset('resources/assect/Studio/2.jpg') }}',
-                    '{{ Vite::asset('resources/assect/Studio/3.jpg') }}',
-                    '{{ Vite::asset('resources/assect/Studio/4.jpg') }}'
+                    '{{ Vite::asset('public/assect/Studio/1.jpg') }}',
+                    '{{ Vite::asset('public/assect/Studio/2.jpg') }}',
+                    '{{ Vite::asset('public/assect/Studio/3.jpg') }}',
+                    '{{ Vite::asset('public/assect/Studio/4.jpg') }}'
                 ],
                 next() { this.active = (this.active + 1) % this.slides.length },
                 prev() { this.active = (this.active - 1 + this.slides.length) % this.slides.length },

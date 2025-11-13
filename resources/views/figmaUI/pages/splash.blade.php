@@ -15,7 +15,7 @@
     <!-- Splash -->
     <div id="splash"
         class="fixed top-0 left-0 w-full h-screen z-[9999] opacity-100 transition-opacity duration-1000 ease-out">
-        <img src="{{ Vite::asset('resources/assect/splash.jpg') }}" alt="Splash Screen"
+        <img src="{{ Vite::asset('public/assect/splash/splash.jpg') }}" alt="Splash Screen"
             class="absolute w-full h-full object-cover">
         <div class="fixed top-0 left-0 w-full text-white p-4 py-3 px-4 z-50">
             <p class="flex justify-center tracking-wide">"WE AIM TO, AT ALL TIMES, PROVIDE OUR
@@ -24,7 +24,7 @@
                 DIGITAL ART."</p>
         </div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <img class="w-[500px]" src="{{ Vite::asset('resources/assect/Logo/2.png') }}" alt="">
+            <img class="w-[500px]" src="{{ Vite::asset('public/assect/Logo/2.png') }}" alt="">
         </div>
         <div class="fixed bottom-0 left-0 w-full text-white p-4 py-3 px-4 z-50 flex justify-center gap-5">
             <a href="https://www.facebook.com/Vicnguyendesign" target="_blank">

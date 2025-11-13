@@ -90,3 +90,37 @@ Route::prefix('new')->group(function () {
         return view('figmaUI.pages.contact');
     });
 });
+
+
+// site Admin
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('Admin.layouts.top');
+    });
+
+    Route::get('/', function () {
+        return view('Admin.layouts.footer');
+    });
+
+    Route::get('/', function () {
+        return view('Admin.layouts.welcome');
+    });
+
+    Route::get('/login', function () {
+        return view('Admin.layouts.login');
+    });
+
+    Route::get('/register', function () {
+        return view('Admin.layouts.register');
+    });
+
+    Route::get('/', function () {
+        return view('Admin.pages.home');
+    })->name('admin.home');
+
+      Route::get('/profile', function () {
+        return view('Admin.layouts.profile');
+    });
+
+});
+

@@ -6,7 +6,7 @@
     <section class="max-w-[1250px] mx-auto mt-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 p-4">
             <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/DNvilla/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/DNvilla/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -17,7 +17,7 @@
                 </div>
             </a>
             <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/NguyetHouse/1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/NguyetHouse/1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -28,7 +28,7 @@
                 </div>
             </a>
             <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/Bentre/image1.png') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/Bentre/image1.png') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -39,7 +39,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/LuuHouse/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/LuuHouse/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -50,7 +50,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/TDRHouse/image1.png') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/TDRHouse/image1.png') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -61,7 +61,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/MeyVinh/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/MeyVinh/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -72,7 +72,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/LVSHouse/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/LVSHouse/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -83,7 +83,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/Komorebi/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/Komorebi/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -94,7 +94,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/KaHouse/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/KaHouse/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -105,7 +105,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/Sushi/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/Sushi/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -116,7 +116,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/D8/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/D8/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -127,7 +127,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/LongAn/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/LongAn/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -138,7 +138,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/Alpha/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/Alpha/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -149,7 +149,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/KSS/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/KSS/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -160,7 +160,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/YenTho/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/YenTho/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->
@@ -171,7 +171,7 @@
                 </div>
             </a>
              <a href="{{ url('new/project/details-project') }}" class="relative group block overflow-hidden">
-                <img src="{{ Vite::asset('resources/assect/Image/Ocean/image1.jpg') }}" alt=""
+                <img src="{{ Vite::asset('public/assect/Image/Ocean/image1.jpg') }}" alt=""
                     class="w-full h-81 object-cover transition-transform duration-300 group-hover:scale-110">
 
                 <!-- Lớp phủ hiện chữ -->

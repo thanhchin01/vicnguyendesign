@@ -18,10 +18,7 @@ return new class extends Migration
             $table->string('job');
             $table->string('age');
             $table->string('phone');
-            $table->string('type');
-            $table->string('acreage');
-            $table->string('scale');
-            $table->string('address');
+            $table->string('descriptions');
             $table->timestamps();
         });
     }

@@ -54,27 +54,27 @@
             </div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/2.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/2.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/3.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/3.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/4.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/4.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/5.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/5.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/6.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/6.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/7.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/7.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/8.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/8.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/9.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/9.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/10.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/10.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/11.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/11.png') }}"
                 alt="">
-            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('resources/assect/Image/NguyetHouse/12.png') }}"
+            <img class="w-full h-[300px] object-cover" src="{{ Vite::asset('public/assect/Image/NguyetHouse/12.png') }}"
                 alt="">
         </div>
     </section>

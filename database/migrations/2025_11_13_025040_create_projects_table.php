@@ -11,15 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project__details', function (Blueprint $table) {
+        // dự án
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
+            $table->string('title');
+            $table->string('slug');
+            $table->string('image_url');
+            $table->string('description');
             $table->string('address');
-            $table->string('time');
+            $table->string('date');
+            $table->integer('status');
             $table->string('acreage');
-            $table->string('status');
             $table->string('team_design');
-            $table->integer('project_id');
+            $table->integer('id_projects_categories');
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project__details');
+        Schema::dropIfExists('projects');
     }
 };
