@@ -13,7 +13,8 @@ class News extends Model
         'title',
         'slug',
         'date',
-        'descritions',
+        'sumary',
+        'content',
         'id_news_categories',
     ];
 }

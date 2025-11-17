@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Bảng tin tức
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('image');
             $table->string('title');
             $table->string('slug');
             $table->string('date');
-            $table->string('descritions');
+            $table->string('sumary');
+            $table->string('content');
             $table->integer('id_news_categories');
             $table->timestamps();
         });

@@ -118,9 +118,27 @@ Route::prefix('admin')->group(function () {
         return view('Admin.pages.home');
     })->name('admin.home');
 
-      Route::get('/profile', function () {
+    Route::get('/profile', function () {
         return view('Admin.layouts.profile');
     });
 
-});
+    Route::get('/changepassword', function () {
+        return view('Admin.layouts.changepassword');
+    });
 
+    Route::get('/project', function () {
+        return view('Admin.pages.project');
+    });
+
+    Route::get('/news', function () {
+        return view('Admin.pages.news');
+    });
+
+    Route::get('/member', function () {
+        return view('Admin.pages.member');
+    });
+
+     Route::get('/notice', function () {
+        return view('Admin.pages.notice');
+    });
+});

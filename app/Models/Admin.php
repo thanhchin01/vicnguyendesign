@@ -14,7 +14,7 @@ class Admin extends Model
         'password',
         'image',
         'birthday',
-        'sex',
+        'gender',
         'address',
     ];
 }

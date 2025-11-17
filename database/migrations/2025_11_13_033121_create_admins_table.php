@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Bảng user của admin
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->string('fullname');
@@ -18,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('image');
             $table->date('birthday');
-            $table->string('sex');
+            $table->string('gender'); // giới tính
             $table->string('address');
             $table->timestamps();
         });

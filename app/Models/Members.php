@@ -15,6 +15,7 @@ class Members extends Model
         'join',
         'project',
         'award',
+        'status',
         'id_positions',
     ];
 }

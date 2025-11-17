@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Bảng trung gian của dự án và thành viên
         Schema::create('project_members', function (Blueprint $table) {
             $table->id();
             $table->integer('id_projects');

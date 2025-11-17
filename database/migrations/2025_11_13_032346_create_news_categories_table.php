@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Bảng danh mục tin tức
         Schema::create('news_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');

@@ -1,11 +1,16 @@
 <nav class="shadow-lg px-6 py-2">
     <div class="max-w-[1600px] mx-auto flex justify-between items-center gap-5">
         <div class="flex gap-4">
-            <a href="" class="hover:underline hover:text-black text-gray-500"><i class="fa-solid fa-house me-1"></i>Home</a>
-            <a href="" class="hover:underline hover:text-black text-gray-500"><i class="fa-solid fa-list-check me-1"></i>Project</a>
-            <a href="" class="hover:underline hover:text-black text-gray-500"><i class="fa-solid fa-newspaper me-1"></i>News</a>
-            <a href="" class="hover:underline hover:text-black text-gray-500"><i class="fa-solid fa-users me-1"></i>Member</a>
-            <a href="" class="hover:underline hover:text-black text-gray-500"><i class="fa-solid fa-phone-flip me-1"></i>Contact</a>
+            <a href="{{ url('admin/') }}" class="hover:underline hover:text-black text-gray-500"><i
+                    class="fa-solid fa-house me-1"></i>Home</a>
+            <a href="{{ url('admin/project') }}" class="hover:underline hover:text-black text-gray-500"><i
+                    class="fa-solid fa-list-check me-1"></i>Project</a>
+            <a href="{{ url('admin/news') }}" class="hover:underline hover:text-black text-gray-500"><i
+                    class="fa-solid fa-newspaper me-1"></i>News</a>
+            <a href="{{ url('admin/member') }}" class="hover:underline hover:text-black text-gray-500"><i
+                    class="fa-solid fa-users me-1"></i>Member</a>
+            <a href="{{ url('admin/contact') }}" class="hover:underline hover:text-black text-gray-500"><i
+                    class="fa-solid fa-phone-flip me-1"></i>Contact</a>
         </div>
         <div class="flex gap-3">
             <div x-data="{ open: false }" class="relative">
@@ -72,8 +77,8 @@
             <div x-data="{ open: false }" class="relative">
                 <button @click="open = !open"
                     class="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded-full focus:outline-none">
-                    <img class="w-8 h-8 rounded-full object-cover"
-                        src="{{ Vite::asset('public/assect/Avatar/1.png') }}" alt="Avatar">
+                    <img class="w-8 h-8 rounded-full object-cover" src="{{ Vite::asset('public/assect/Avatar/1.png') }}"
+                        alt="Avatar">
                     <span class="text-gray-800 font-medium">Alexander Pierce</span>
                 </button>
 
@@ -87,15 +92,19 @@
                             <img class="w-full h-full object-cover"
                                 src="{{ Vite::asset('public/assect/Avatar/1.png') }}" alt="Avatar Lớn">
                         </div>
-                        <h3 class="text-lg font-semibold text-center">Vic Nguyen <p>CEO & Lead 3D Artist</p></h3>
+                        <h3 class="text-lg font-semibold text-center">Vic Nguyen <p>CEO & Lead 3D Artist</p>
+                        </h3>
                         <p class="text-xs opacity-80 mt-1">Member since Nov. 2023</p>
                     </div>
                     <div class="grid grid-cols-2">
-                        <a href="{{ url('admin/profile') }}" class="p-2 flex items-center justify-center border-r border-gray-200 hover:bg-gray-100">Profile</a>
-                        <a href="{{ url('admin/profile') }}" class="p-2 text-center border-r border-gray-200 hover:bg-gray-100">Change password</a>
+                        <a href="{{ url('admin/profile') }}"
+                            class="p-2 flex items-center justify-center border-r border-gray-200 hover:bg-gray-100">Profile</a>
+                        <a href="{{ url('admin/changepassword') }}"
+                            class="p-2 text-center border-r border-gray-200 hover:bg-gray-100">Change password</a>
                     </div>
                     <div class="p-1 flex items-center justify-center">
-                         <a href="#" class="p-2 text-center hover:bg-gray-100">Sign out<i class="fa-solid fa-right-from-bracket ms-2"></i></a>
+                        <a href="{{ url('admin/login') }}" class="p-2 text-center hover:bg-gray-100">Sign out<i
+                                class="fa-solid fa-right-from-bracket ms-2"></i></a>
                     </div>
                 </div>
             </div>

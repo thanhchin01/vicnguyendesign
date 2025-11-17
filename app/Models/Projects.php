@@ -21,4 +21,7 @@ class Projects extends Model
         'team_design',
         'id_projectcategories',
     ];
+
+    CONST HOAN_THANH = 0;
+    CONST CHUA_HOAN_THANH= 1;
 }

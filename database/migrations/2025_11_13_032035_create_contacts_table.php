@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Bảng liên hệ
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('fullname');
             $table->string('email');
             $table->string('job');
             $table->string('age');
             $table->string('phone');
-            $table->string('descriptions');
             $table->timestamps();
         });
     }

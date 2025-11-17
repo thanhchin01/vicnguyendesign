@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Bảng chức vụ
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
