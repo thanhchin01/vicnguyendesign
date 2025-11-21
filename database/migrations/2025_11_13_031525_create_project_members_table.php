@@ -14,15 +14,12 @@ return new class extends Migration
         // Bảng trung gian của dự án và thành viên
         Schema::create('project_members', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_projects');
-            $table->integer('id_members');
+            $table->integer('projects_id');
+            $table->integer('members_id');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('project_members');

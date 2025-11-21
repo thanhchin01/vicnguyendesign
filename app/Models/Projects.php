@@ -19,9 +19,11 @@ class Projects extends Model
         'status',
         'acreage',
         'team_design',
-        'id_projectcategories',
+        'created_by',
+        'updated_by',
+        'category_id',
     ];
 
-    CONST HOAN_THANH = 0;
-    CONST CHUA_HOAN_THANH= 1;
+    const HOAN_THANH = 0;
+    const CHUA_HOAN_THANH = 1;
 }

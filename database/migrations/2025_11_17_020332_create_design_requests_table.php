@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('design_requests', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_contacts');
+            $table->integer('contacts_id');
             $table->string('project_type');
             $table->string('area');
             $table->string('scale');

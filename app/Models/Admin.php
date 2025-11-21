@@ -7,14 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     //
-    protected $table = 'admin';
+    protected $table = 'admins';
     protected $fillable = [
         'fullname',
         'email',
         'password',
-        'image',
-        'birthday',
-        'gender',
-        'address',
+        'avatar',
     ];
 }

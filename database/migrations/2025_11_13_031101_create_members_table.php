@@ -15,12 +15,13 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('avatar');
             $table->string('graduate');
             $table->date('join');
             $table->string('project');
             $table->string('award');
+            $table->string('position');
             $table->integer('status')->default(1); //1,Đang làm, 2 Dã nghỉ
-            $table->integer('id_positions');
             $table->timestamps();
         });
     }

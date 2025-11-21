@@ -15,6 +15,9 @@ class News extends Model
         'date',
         'sumary',
         'content',
-        'id_news_categories',
+        'created_by',
+        'updated_by',
+        'views',
+        'new_category_id',
     ];
 }

@@ -17,10 +17,7 @@ return new class extends Migration
             $table->string('fullname');
             $table->string('email');
             $table->string('password');
-            $table->string('image');
-            $table->date('birthday');
-            $table->string('gender'); // giới tính
-            $table->string('address');
+            $table->string('avatar');
             $table->timestamps();
         });
     }

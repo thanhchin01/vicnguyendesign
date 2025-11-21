@@ -1,4 +1,4 @@
-<nav class="shadow-lg px-6 py-2">
+{{-- <nav class="shadow-lg px-6 py-2">
     <div class="max-w-[1600px] mx-auto flex justify-between items-center gap-5">
         <div class="flex gap-4">
             <a href="{{ url('admin/') }}" class="hover:underline hover:text-black text-gray-500"><i
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            {{-- thông tin cá nhân --}}
+            {{-- thông tin cá nhân -
             <div x-data="{ open: false }" class="relative">
                 <button @click="open = !open"
                     class="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded-full focus:outline-none">
@@ -110,4 +110,36 @@
             </div>
         </div>
     </div>
-</nav>
+</nav> --}}
+<header class="flex items-center justify-end h-14 bg-gray-800 border-b shadow-sm px-6">
+    {{-- User Profile / Logout --}}
+    <div x-data="{ open: false }" class="relative">
+        <button @click="open = !open"
+            class="flex items-center space-x-2 p-1 bg-white hover:bg-gray-100 rounded-full focus:outline-none">
+            <img class="w-8 h-8 rounded-full object-cover" src="{{ Vite::asset('public/assect/Avatar/1.png') }}"
+                alt="Avatar">
+            <span class="text-gray-800 font-medium">Alexander Pierce</span>
+        </button>
+
+        <div x-show="open" @click.away="open = false"
+            class="absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-xl z-50 overflow-hidden border border-gray-300">
+
+            <div class="bg-blue-600 text-white p-4 flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full border-4 border-white overflow-hidden mb-3">
+                    <img class="w-full h-full object-cover" src="{{ Vite::asset('public/assect/Avatar/1.png') }}"
+                        alt="">
+                </div>
+                <h3 class="text-lg font-semibold text-center">Vic Nguyen</h3>
+                <p class="text-xs opacity-80 mt-1">Member since Nov. 2023</p>
+            </div>
+
+            <div class="grid grid-cols-2">
+                <a href="{{ url('/admin/profile') }}"
+                    class="p-2 flex items-center justify-center border-r border-gray-200 hover:bg-gray-100">Profile</a>
+                <a href="{{ url('/admin/login') }}" class="p-2 text-center hover:bg-gray-100">
+                    Sign out <i class="fa-solid fa-right-from-bracket ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

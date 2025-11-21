@@ -23,7 +23,9 @@ return new class extends Migration
             $table->integer('status')->default(1); //1:hoàn thành, 2 chưa hoàn thành
             $table->string('acreage');
             $table->string('team_design');
-            $table->integer('id_projects_categories');
+            $table->string('created_by');
+            $table->string('updated_by');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

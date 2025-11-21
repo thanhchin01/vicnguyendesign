@@ -7,13 +7,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\ProjectMembersController;
 use App\Http\Controllers\ProjectsCategoriesController;
-use App\Http\Controllers\ProjectImagesController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsCategoriesController;
-use App\Http\Controllers\NewsImagesController;
 use App\Http\Controllers\PositionsController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DesignRequestsController;
 
 
 Route::post('/admin/login', [AdminController::class,'login']);

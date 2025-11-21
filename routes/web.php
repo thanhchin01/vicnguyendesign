@@ -103,6 +103,10 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::get('/', function () {
+        return view('Admin.layouts.slidebar');
+    });
+
+    Route::get('/', function () {
         return view('Admin.layouts.welcome');
     });
 
@@ -110,35 +114,55 @@ Route::prefix('admin')->group(function () {
         return view('Admin.layouts.login');
     });
 
-    Route::get('/register', function () {
-        return view('Admin.layouts.register');
+    Route::get('/forgotpassword', function () {
+        return view('Admin.layouts.forgotpassword');
     });
 
     Route::get('/', function () {
-        return view('Admin.pages.home');
+        return view('Admin.pages.home.home');
     })->name('admin.home');
 
     Route::get('/profile', function () {
         return view('Admin.layouts.profile');
     });
 
-    Route::get('/changepassword', function () {
-        return view('Admin.layouts.changepassword');
+    Route::get('/project', function () {
+        return view('Admin.pages.project.project');
     });
 
-    Route::get('/project', function () {
-        return view('Admin.pages.project');
+    Route::get('/editproject', function () {
+        return view('Admin.pages.project.editproject');
+    });
+
+    Route::get('/createproject', function () {
+        return view('Admin.pages.project.createproject');
     });
 
     Route::get('/news', function () {
-        return view('Admin.pages.news');
+        return view('Admin.pages.news.news');
+    });
+
+    Route::get('/editnews', function () {
+        return view('Admin.pages.news.editnews');
+    });
+
+    Route::get('/createnews', function () {
+        return view('Admin.pages.news.createnews');
     });
 
     Route::get('/member', function () {
-        return view('Admin.pages.member');
+        return view('Admin.pages.member.member');
     });
 
-     Route::get('/notice', function () {
-        return view('Admin.pages.notice');
+    Route::get('/editmember', function () {
+        return view('Admin.pages.member.editmember');
+    });
+
+     Route::get('/createmember', function () {
+        return view('Admin.pages.member.createmember');
+    });
+
+    Route::get('/notice', function () {
+        return view('Admin.pages.notice.notice');
     });
 });

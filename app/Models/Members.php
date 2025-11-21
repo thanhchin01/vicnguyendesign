@@ -11,11 +11,12 @@ class Members extends Model
 
     protected $fillable = [
         'name',
+        'avatar',
         'graduate',
         'join',
         'project',
         'award',
+        'position',
         'status',
-        'id_positions',
     ];
 }
