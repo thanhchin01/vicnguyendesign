@@ -3,70 +3,282 @@
 @section('title', 'Home Page')
 
 @section('content')
-    <section class="mt-2 p-4 h-auto">
-        <div class="max-w-[1500px] mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-white rounded-xl">
-                    <div class="flex justify-between items-center p-4 border-t-4 border-blue-500 rounded-xl">
-                        <div>
-                            <h1>Dự án đã hoàn thành</h1>
-                            <p class="text-blue-500 font-bold text-xl">10</p>
+    <div class="row p-3">
+        <!--begin::Col-->
+        <div class="col-lg-3 col-6">
+            <!--begin::Small Box Widget 1-->
+            <div class="small-box text-bg-primary">
+                <div class="inner d-flex justify-content-between align-items-center">
+                    <div>
+                        {{-- Phần chữ --}}
+                        <h3>150</h3>
+                        <p>Dự án đã hoàn thành</p>
+                    </div>
+
+                    {{-- Phần Icon (giữ nguyên kích thước FA-2x) --}}
+                    <i class="fa-solid fa-list-check fa-2x"></i>
+                </div>
+
+                <a href="{{ url('admin/project') }}"
+                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                    More info <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+
+
+            <!--end::Small Box Widget 1-->
+        </div>
+        <!--end::Col-->
+        <div class="col-lg-3 col-6">
+            <!--begin::Small Box Widget 2-->
+            <div class="small-box text-bg-success">
+                <div class="inner d-flex justify-content-between align-items-center">
+                    <div>
+                        {{-- Phần chữ --}}
+                        <h3>10</h3>
+                        <p>Tin tức</p>
+                    </div>
+                    <i class="fa-solid fa-newspaper fa-2x"></i>
+                </div>
+                <a href="{{ url('admin/news') }}"
+                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                    More info <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+            <!--end::Small Box Widget 2-->
+        </div>
+        <!--end::Col-->
+        <div class="col-lg-3 col-6">
+            <!--begin::Small Box Widget 2-->
+            <div class="small-box text-bg-warning">
+                <div class="inner d-flex justify-content-between align-items-center">
+                    <div>
+                        {{-- Phần chữ --}}
+                        <h3>10</h3>
+                        <p>Liên hệ mới</p>
+                    </div>
+                    <i class="fa-solid fa-newspaper fa-2x"></i>
+                </div>
+                <a href="{{ url('admin/notice') }}"
+                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                    More info <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+            <!--end::Small Box Widget 2-->
+        </div>
+        <!--end::Col-->
+        <div class="col-lg-3 col-6">
+            <!--begin::Small Box Widget 2-->
+            <div class="small-box text-bg-danger">
+                <div class="inner d-flex justify-content-between align-items-center">
+                    <div>
+                        {{-- Phần chữ --}}
+                        <h3>20</h3>
+                        <p>Thành viên</p>
+                    </div>
+                    <i class="fa-solid fa-users fa-2x"></i>
+                </div>
+                <a href="{{ url('admin/member') }}"
+                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                    More info <i class="bi bi-link-45deg"></i>
+                </a>
+            </div>
+            <!--end::Small Box Widget 2-->
+        </div>
+        <!--end::Col-->
+    </div>
+    <div class="row p-3">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Members</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
+                            <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                            <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-lte-toggle="card-remove">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    <div class="row text-center m-1">
+                        <div class="col-3 p-2">
+                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/1.png') }}" alt="User Image">
+                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
+                                Alexander Pierce
+                            </a>
+                            <div class="fs-8">Today</div>
                         </div>
-                        <div class="bg-blue-500 rounded-full px-3 py-3">
-                            <i class="fa-solid fa-list-check text-[30px] text-white"></i>
+                        <div class="col-3 p-2">
+                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/2.png') }}" alt="User Image">
+                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
+                                Norman
+                            </a>
+                            <div class="fs-8">Yesterday</div>
+                        </div>
+                        <div class="col-3 p-2">
+                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/3.png') }}" alt="User Image">
+                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
+                                Jane
+                            </a>
+                            <div class="fs-8">12 Jan</div>
+                        </div>
+                        <div class="col-3 p-2">
+                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/4.png') }}" alt="User Image">
+                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
+                                John
+                            </a>
+                            <div class="fs-8">12 Jan</div>
+                        </div>
+                        <div class="col-3 p-2">
+                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/1.png') }}" alt="User Image">
+                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
+                                Alexander
+                            </a>
+                            <div class="fs-8">13 Jan</div>
+                        </div>
+                        <div class="col-3 p-2">
+                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/2.png') }}"
+                                alt="User Image">
+                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
+                                Sarah
+                            </a>
+                            <div class="fs-8">14 Jan</div>
+                        </div>
+                        <div class="col-3 p-2">
+                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/3.png') }}"
+                                alt="User Image">
+                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
+                                Nora
+                            </a>
+                            <div class="fs-8">15 Jan</div>
+                        </div>
+                        <div class="col-3 p-2">
+                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/1.png') }}"
+                                alt="User Image">
+                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
+                                Nadia
+                            </a>
+                            <div class="fs-8">15 Jan</div>
                         </div>
                     </div>
-                    <a href="#"
-                        class="block text-center text-sm font-semibold text-blue-500 hover:bg-gray-50 py-2 border-t rounded-b-xl">
-                        Xem chi tiết
-                    </a>
+                    <!-- /.users-list -->
                 </div>
-                <div class="bg-white rounded-xl">
-                    <div class="flex justify-between items-center p-4 border-t-4 border-yellow-500 rounded-xl">
-                        <div>
-                            <h1>Tin tức</h1>
-                            <p class="text-yellow-500 font-bold text-xl">10</p>
-                        </div>
-                        <div class="bg-yellow-500 rounded-full px-3 py-3">
-                            <i class="fa-solid fa-newspaper text-[30px] text-white"></i>
-                        </div>
-                    </div>
-                    <a href="#"
-                        class="block text-center text-sm font-semibold text-yellow-500 hover:bg-gray-50 py-2 border-t rounded-b-xl">
-                        Xem chi tiết
-                    </a>
+                <!-- /.card-body -->
+                <div class="card-footer text-center">
+                    <a href="{{ url('admin/member') }}"
+                        class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">View
+                        All
+                        Users</a>
                 </div>
-                <div class="bg-white rounded-xl">
-                    <div class="flex justify-between items-center p-4 border-t-4 border-green-500 rounded-xl">
-                        <div>
-                            <h1>Liên hệ mới</h1>
-                            <p class="text-green-500 font-bold text-xl">10</p>
-                        </div>
-                        <div class="bg-green-500 rounded-full px-3 py-3">
-                            <i class="fa-solid fa-list-check text-[30px] text-white"></i>
-                        </div>
-                    </div>
-                    <a href="#"
-                        class="block text-center text-sm font-semibold text-green-500 hover:bg-gray-50 py-2 border-t rounded-b-xl">
-                        Xem chi tiết
-                    </a>
-                </div>
-                <div class="bg-white rounded-xl">
-                    <div class="flex justify-between items-center p-4 border-t-4 border-red-500 rounded-xl">
-                        <div>
-                            <h1>Thành viên</h1>
-                            <p class="text-red-500 font-bold text-xl">10</p>
-                        </div>
-                        <div class="bg-red-500 rounded-full px-3 py-3">
-                            <i class="fa-solid fa-users text-[30px] text-white"></i>
-                        </div>
-                    </div>
-                    <a href="#"
-                        class="block text-center text-sm font-semibold text-red-500 hover:bg-gray-50 py-2 border-t rounded-b-xl">
-                        Xem chi tiết
-                    </a>
-                </div>
+                <!-- /.card-footer -->
             </div>
         </div>
-    </section>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Contact</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
+                            <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                            <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-lte-toggle="card-remove">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table m-0" role="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Họ và tên</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col" class="text-center">Trạng thái</th>
+                                    <th scope="col" class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="">Nguyễn Văn A</p>
+                                    </td>
+                                    <td>nguyenvana@gmail.com</td>
+                                    <td class="text-center">
+                                        <span class="badge text-bg-success">Đọc</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group" aria-label="Basic action group">
+                                            <a href="{{ url('admin/details-notice') }}"
+                                                class="btn btn-primary btn-sm me-2" title="">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button type="button" class="btn btn-danger btn-sm" title="Xóa">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="">Nguyễn Văn A</p>
+                                    </td>
+                                    <td>nguyenvana@gmail.com</td>
+                                    <td class="text-center">
+                                        <span class="badge text-bg-warning">Đã đọc</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group" aria-label="Basic action group">
+                                            <a href="{{ url('admin/details-notice') }}"
+                                                class="btn btn-primary btn-sm me-2" title="">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button type="button" class="btn btn-danger btn-sm" title="Xóa">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="">Nguyễn Văn A</p>
+                                    </td>
+                                    <td>nguyenvana@gmail.com</td>
+                                    <td class="text-center">
+                                        <span class="badge text-bg-success">Đọc</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group" role="group" aria-label="Basic action group">
+                                            <a href="{{ url('admin/details-notice') }}"
+                                                class="btn btn-primary btn-sm me-2" title="">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button type="button" class="btn btn-danger btn-sm" title="Xóa">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer text-center">
+                    <a href="{{ url('admin/notice') }}"
+                        class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">View
+                        All
+                        Notice</a>
+                </div>
+                <!-- /.card-footer -->
+            </div>
+        </div>
+    </div>
 @endsection

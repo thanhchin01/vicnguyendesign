@@ -20,4 +20,12 @@ class News extends Model
         'views',
         'new_category_id',
     ];
+
+    public function NewsCategories(){
+        return $this->belongsTo(NewsCategories::class, 'new_category_id');
+    }
+    public function author(){
+        return $this->belongsTo(Admin::class, 'created_by');
+    }
+    
 }

@@ -103,7 +103,7 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::get('/', function () {
-        return view('Admin.layouts.slidebar');
+        return view('Admin.layouts.sidebar');
     });
 
     Route::get('/', function () {
@@ -115,7 +115,7 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::get('/forgotpassword', function () {
-        return view('Admin.layouts.forgotpassword');
+        return view('Admin.layouts.forgot-password');
     });
 
     Route::get('/', function () {
@@ -164,5 +164,9 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/notice', function () {
         return view('Admin.pages.notice.notice');
+    });
+
+    Route::get('/details-notice', function () {
+        return view('Admin.pages.notice.details-notice');
     });
 });

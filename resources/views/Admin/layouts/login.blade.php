@@ -10,7 +10,6 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-
 <body>
     <div class="grid grid-cols-1 md:grid-cols-12">
         <div class="col-span-5 bg-gray-800 h-screen flex justify-center items-center">
@@ -55,5 +54,4 @@
         </div>
     </div>
 </body>
-
 </html>

@@ -26,4 +26,12 @@ class Projects extends Model
 
     const HOAN_THANH = 0;
     const CHUA_HOAN_THANH = 1;
+
+    public function projects_categories(){
+        return $this->belongsTo(ProjectsCategories::class, 'category_id');
+    }
+
+    public function members(){
+        return $this->belongsToMany(Members:: class, 'project_members','projects_id', 'members_id');
+    }
 }

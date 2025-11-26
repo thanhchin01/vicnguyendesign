@@ -19,4 +19,8 @@ class Members extends Model
         'position',
         'status',
     ];
+
+    public function projects(){
+        return $this->belongsToMany(Projects::class, 'project_members', 'members_id', 'projects_id');
+    }
 }

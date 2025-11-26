@@ -14,4 +14,8 @@ class ProjectsCategories extends Model
         'slug',
         'description',
     ];
+
+    public function projects(){
+        return $this->hasMany(Projects::class, 'category_id');
+    }
 }
