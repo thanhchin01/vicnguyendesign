@@ -98,7 +98,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('admin/member') }}" class="nav-link">
+                <a href="{{ url('admin/members') }}" class="nav-link">
                   <i class="fa-solid fa-users"></i>
                   <p>Member</p>
                 </a>

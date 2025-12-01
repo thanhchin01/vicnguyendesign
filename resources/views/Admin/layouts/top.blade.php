@@ -97,7 +97,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                     <img src="{{ asset('assect/img/user2-160x160.jpg') }}" class="user-image rounded-circle shadow"
                         alt="User Image" />
-                    <span class="d-none d-md-inline">Vic Nguyen</span>
+                    <span class="d-none d-md-inline">{{ Auth::guard('admin')->user()->fullname }}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                     <!-- User image -->
@@ -113,7 +113,7 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                         <a href="{{ url('admin/profile') }}" class="btn btn-default btn-flat">Profile</a>
-                        <a href="{{ url('admin/login') }}" class="btn btn-default btn-flat float-end">Sign out</a>
+                        <a href="{{ route('logout') }}" class="btn btn-default btn-flat float-end">Sign out</a>
                     </li>
                 </ul>
             </li>

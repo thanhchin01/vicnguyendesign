@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('avatar');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -28,5 +29,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('admins');
+        Schema::table('admins', function (Blueprint $table) {
+            $table->rememberToken()->after('password');
+        });
     }
 };

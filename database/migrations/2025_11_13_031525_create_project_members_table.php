@@ -14,9 +14,12 @@ return new class extends Migration
         // Bảng trung gian của dự án và thành viên
         Schema::create('project_members', function (Blueprint $table) {
             $table->id();
-            $table->integer('projects_id');
-            $table->integer('members_id');
+            $table->unsignedBigInteger('projects_id');
+            $table->unsignedBigInteger('member_id');
             $table->timestamps();
+
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->foreign('projects_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 

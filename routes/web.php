@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MembersController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -94,6 +96,20 @@ Route::prefix('new')->group(function () {
 
 // site Admin
 Route::prefix('admin')->group(function () {
+    //2. Login...
+    // Route::get('/login', function () {
+    //     return view('Admin.layouts.login');
+    // });
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login', [AuthController::class, 'postLogin'])->name('postLogin');
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/forgotpassword', function () {
+        return view('Admin.layouts.forgot-password');
+    });
+});
+Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
+
+    //1. Layout
     Route::get('/', function () {
         return view('Admin.layouts.top');
     });
@@ -110,26 +126,21 @@ Route::prefix('admin')->group(function () {
         return view('Admin.layouts.welcome');
     });
 
-    Route::get('/login', function () {
-        return view('Admin.layouts.login');
-    });
 
-    Route::get('/forgotpassword', function () {
-        return view('Admin.layouts.forgot-password');
+     Route::get('/profile', function () {
+        return view('Admin.layouts.profile');
     });
+    Route::get('profile', [AuthController::class, 'profile'])->name('profile');
 
     Route::get('/', function () {
         return view('Admin.pages.home.home');
     })->name('admin.home');
 
-    Route::get('/profile', function () {
-        return view('Admin.layouts.profile');
-    });
-
     Route::get('/project', function () {
         return view('Admin.pages.project.project');
     });
 
+    // 3. Routes cho Project
     Route::get('/editproject', function () {
         return view('Admin.pages.project.editproject');
     });
@@ -138,6 +149,7 @@ Route::prefix('admin')->group(function () {
         return view('Admin.pages.project.createproject');
     });
 
+    // 4. Routes cho News
     Route::get('/news', function () {
         return view('Admin.pages.news.news');
     });
@@ -150,18 +162,23 @@ Route::prefix('admin')->group(function () {
         return view('Admin.pages.news.createnews');
     });
 
-    Route::get('/member', function () {
-        return view('Admin.pages.member.member');
-    });
+    //5. Members
+    // Route::get('/member', function () {
+    //     return view('Admin.pages.member.member');
+    // });
 
-    Route::get('/editmember', function () {
-        return view('Admin.pages.member.editmember');
-    });
+    // Route::get('/editmember', function () {
+    //     return view('Admin.pages.member.editmember');
+    // });
 
-     Route::get('/createmember', function () {
-        return view('Admin.pages.member.createmember');
-    });
+    // Route::get('/createmember', function () {
+    //     return view('Admin.pages.member.createmember');
+    // });
 
+     Route::resource('members', MembersController::class)->except(['show']);
+
+
+    //6. notice
     Route::get('/notice', function () {
         return view('Admin.pages.notice.notice');
     });

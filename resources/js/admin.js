@@ -1609,3 +1609,19 @@ CKEDITOR.replace('editor', {
     // Loại bỏ những plugin không cần
     removePlugins: 'table,tabletools,forms,smiley,iframe,pagebreak,flash,about'
 });
+
+
+//Chuyển form
+function togglePassword(id) {
+    const input = document.getElementById(id);
+    const icon = input.nextElementSibling.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('bi-eye');
+        icon.classList.add('bi-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('bi-eye-slash');
+        icon.classList.add('bi-eye');
+    }
+}
