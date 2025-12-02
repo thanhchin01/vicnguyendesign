@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MembersController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -150,17 +152,19 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     });
 
     // 4. Routes cho News
-    Route::get('/news', function () {
-        return view('Admin.pages.news.news');
-    });
+    // Route::get('/news', function () {
+    //     return view('Admin.pages.news.news');
+    // });
 
-    Route::get('/editnews', function () {
-        return view('Admin.pages.news.editnews');
-    });
+    // Route::get('/editnews', function () {
+    //     return view('Admin.pages.news.editnews');
+    // });
 
-    Route::get('/createnews', function () {
-        return view('Admin.pages.news.createnews');
-    });
+    // Route::get('/createnews', function () {
+    //     return view('Admin.pages.news.createnews');
+    // });
+    Route::resource('news', NewsController::class)->except(['show']);
+    Route::post('/upload-image', [UploadController::class, 'upload']);
 
     //5. Members
     // Route::get('/member', function () {

@@ -14,10 +14,14 @@ return new class extends Migration
         // Bảng user của admin
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
+            $table->string('username');
             $table->string('fullname');
             $table->string('email');
             $table->string('password');
+            $table->string('phone');
             $table->string('avatar');
+            $table->integer('gender');
+            $table->string('date_of_birth');
             $table->rememberToken();
             $table->timestamps();
         });

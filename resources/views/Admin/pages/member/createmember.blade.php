@@ -18,13 +18,13 @@
             </ol>
         </nav>
     </div>
-     {{-- Hiển thị thông báo thành công từ Controller --}}
-            @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show container" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
+    {{-- Hiển thị thông báo thành công từ Controller --}}
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show container" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="container">
         <div class="card card-primary card-outline mb-4">
             <!--begin::Header-->
@@ -70,8 +70,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="join" class="form-label">Ngày gia nhập</label>
-                        <input type="date" class="form-control" id="join" name="join"
-                            value="{{ old('join') }}" required>
+                        <input type="date" class="form-control" id="join" name="join" value="{{ old('join') }}"
+                            required>
                     </div>
                     <div class="mb-3">
                         <label for="project" class="form-label">Dự án</label>

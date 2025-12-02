@@ -111,59 +111,6 @@
                             <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
                                 Alexander Pierce
                             </a>
-                            <div class="fs-8">Today</div>
-                        </div>
-                        <div class="col-3 p-2">
-                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/2.png') }}" alt="User Image">
-                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
-                                Norman
-                            </a>
-                            <div class="fs-8">Yesterday</div>
-                        </div>
-                        <div class="col-3 p-2">
-                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/3.png') }}" alt="User Image">
-                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
-                                Jane
-                            </a>
-                            <div class="fs-8">12 Jan</div>
-                        </div>
-                        <div class="col-3 p-2">
-                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/4.png') }}" alt="User Image">
-                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
-                                John
-                            </a>
-                            <div class="fs-8">12 Jan</div>
-                        </div>
-                        <div class="col-3 p-2">
-                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/1.png') }}" alt="User Image">
-                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
-                                Alexander
-                            </a>
-                            <div class="fs-8">13 Jan</div>
-                        </div>
-                        <div class="col-3 p-2">
-                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/2.png') }}"
-                                alt="User Image">
-                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
-                                Sarah
-                            </a>
-                            <div class="fs-8">14 Jan</div>
-                        </div>
-                        <div class="col-3 p-2">
-                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/3.png') }}"
-                                alt="User Image">
-                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
-                                Nora
-                            </a>
-                            <div class="fs-8">15 Jan</div>
-                        </div>
-                        <div class="col-3 p-2">
-                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/1.png') }}"
-                                alt="User Image">
-                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
-                                Nadia
-                            </a>
-                            <div class="fs-8">15 Jan</div>
                         </div>
                     </div>
                     <!-- /.users-list -->

@@ -1574,40 +1574,18 @@ function filter_categories_1846843450(inputSearchId) {
 
 
 // word mini
-CKEDITOR.replace('editor', {
-    // Toolbar tùy chỉnh tối giản
-    toolbar: [{
-        name: 'basicstyles',
-        items: ['Bold', 'Italic', 'Underline']
-    },
-    {
-        name: 'paragraph',
-        items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight']
-    },
-    {
-        name: 'styles',
-        items: ['Font', 'FontSize']
-    },
-    {
-        name: 'colors',
-        items: ['TextColor', 'BGColor']
-    },
-    {
-        name: 'insert',
-        items: ['Image', 'Link']
-    },
-    {
-        name: 'clipboard',
-        items: ['Undo', 'Redo']
+document.addEventListener('DOMContentLoaded', function () {
+    // Khởi tạo CKEditor trên textarea có id="editor"
+    if (document.getElementById('editor')) {
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                // Cấu hình editor nếu cần (ví dụ: upload ảnh, toolbar)
+                toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
-    ],
-
-    // Bật font + kích thước
-    font_names: 'Arial;Open Sans;Roboto;Times New Roman;Verdana',
-    fontSize_sizes: '12px/12;14px/14;16px/16;18px/18;24px/24;32px/32;',
-
-    // Loại bỏ những plugin không cần
-    removePlugins: 'table,tabletools,forms,smiley,iframe,pagebreak,flash,about'
 });
 
 
@@ -1625,3 +1603,71 @@ function togglePassword(id) {
         icon.classList.add('bi-eye');
     }
 }
+
+// Login Admin
+const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+const Default = {
+    scrollbarTheme: 'os-theme-light',
+    scrollbarAutoHide: 'leave',
+    scrollbarClickScroll: true,
+};
+document.addEventListener('DOMContentLoaded', function () {
+    const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+    // Disable OverlayScrollbars on mobile devices to prevent touch interference
+    const isMobile = window.innerWidth <= 992;
+
+    if (
+        sidebarWrapper &&
+        OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+        !isMobile
+    ) {
+        OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+                theme: Default.scrollbarTheme,
+                autoHide: Default.scrollbarAutoHide,
+                clickScroll: Default.scrollbarClickScroll,
+            },
+        });
+    }
+});
+// <!--end::OverlayScrollbars Configure-->
+// <!--end::Script-->
+// <!-- Code injected by live-server -->
+// <![CDATA[  <-- For SVG support
+if ('WebSocket' in window) {
+    (function () {
+        function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+                var elem = sheets[i];
+                var parent = elem.parentElement || head;
+                parent.removeChild(elem);
+                var rel = elem.rel;
+                if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() ==
+                    "stylesheet") {
+                    var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                    elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date()
+                        .valueOf());
+                }
+                parent.appendChild(elem);
+            }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+            if (msg.data == 'reload') window.location.reload();
+            else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.');
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+    })();
+} else {
+    console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+}
+// ]]>
+

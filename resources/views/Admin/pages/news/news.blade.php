@@ -2,7 +2,7 @@
 
 @section('title', 'News Page')
 
-@section('content')     
+@section('content')
     <div class="page-pretitle mt-3 p-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -15,6 +15,13 @@
             </ol>
         </nav>
     </div>
+    {{-- Hiển thị thông báo từ controller --}}
+    @if (@session('success'))
+        <div class="alert alert-success alert-dismissible fade show container" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="card mb-4 container">
         <div class="card-header">
             <div class=" d-flex justify-content-between">
@@ -22,7 +29,7 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
-                <a href="{{ url('admin/createnews') }}" class="btn action-item btn-primary" tabindex="0"
+                <a href="{{ route('news.create') }}" class="btn action-item btn-primary" tabindex="0"
                     aria-controls="botble-member-tables-member-table" type="button">
                     <svg class="icon svg-icon-ti-ti-plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -44,34 +51,51 @@
                     <th class="text-center" scope="col">Ngày tạo</th>
                     <th class="text-center" scope="col">Mô tả</th>
                     <th class="text-center" scope="col">Danh mục</th>
+                    <th class="text-center" scope="col">Người tạo</th>
                     <th class="text-center" scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="align-middle">
-                    <td class="text-center">1</td>
-                    <td class="text-center">
-                       ANPHA OFFICE / AD9 ARCHITECTS
-                    </td>
-                    <td class="text-center"><img style="width: 120px" src="{{ asset('assect/image/Alpha/image1.jpg') }}"
-                            alt=""></td>
-                    <td class="text-center"><span class="badge text-bg-primary">Nội dung</span></td>
-                    <td class="text-center">20/11/2025</td>
-                    <td class="text-center"><span class="badge text-bg-primary">Nội dung</span></td>
-                    <td class="text-center">Nhà ở</td>
-                    <td class="text-center">
-                        <div class="btn-group" role="group" aria-label="Basic action group">
-                            <a href="{{ url('admin/editnews') }}" class="btn btn-primary btn-sm me-2" title="Sửa">
-                                <i class="fas fa-edit"></i>
-                                Sửa
-                            </a>
-                            <button type="button" class="btn btn-danger btn-sm" title="Xóa">
-                                <i class="fas fa-trash-alt"></i>
-                                Xóa
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+                @forelse ($news as $new)
+                    <tr class="align-middle">
+                        <td class="text-center">{{ $new->id }}</td>
+                        <td class="text-center">
+                            {{ $new->title }}
+                        </td>
+                        <td class="text-center">
+                            @if ($new->image)
+                                <img style="width: 120px; height: 120px; object-fit: cover;"
+                                    src="{{ asset('upload/news/' . $new->image) }}" alt="{{ $new->title }}"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/120x120/E0E0E0/333333?text=No+Img'">
+                            @else
+                                <img style="width: 120px; height: 120px; object-fit: cover;"
+                                    src="https://placehold.co/120x120/E0E0E0/333333?text=No+Img" alt="No Image">
+                            @endif
+                        </td>
+                        <td class="text-center"><span class="badge text-bg-primary">{{ $new->sumary }}</span></td>
+                        <td class="text-center">{{ optional(\Carbon\Carbon::parse($new->date))->format('d/m/Y') }}</td>
+                        <td class="text-center"><span class="badge text-bg-primary">{{ $new->content }}</span></td>
+                        <td class="text-center">{{ $new->new_category_id }}</td>
+                        <td class="text-center">{{ $new->created_by }}</td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group" aria-label="Basic action group">
+                                <a href="{{ route('news.edit', $news->id) }}" class="btn btn-primary btn-sm me-2"
+                                    title="Sửa">
+                                    <i class="fas fa-edit"></i>
+                                    Sửa
+                                </a>
+                                <button type="button" class="btn btn-danger btn-sm" title="Xóa">
+                                    <i class="fas fa-trash-alt"></i>
+                                    Xóa
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr class="align-middle">
+                        <td colspan="8" class="text-center text-muted">Không có tin tức nào được tìm thấy</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

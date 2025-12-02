@@ -60,7 +60,9 @@ class MembersController extends Controller
             'status'    => $request->status,
         ]);
 
-        return redirect()->route('members.create')->with('success', 'Thêm thành viên thành công');
+        // ->with('success', 'Thêm thành viên thành công')
+        toastr()->success('Thêm thành viên thành công');
+        return redirect()->route('members.index');
     }
 
 
@@ -105,7 +107,9 @@ class MembersController extends Controller
         ]);
 
         // Sử dụng route chuẩn: members.index
-        return Redirect::route('members.index')->with('success', 'Cập nhật thành viên thành công');
+        // ->with('success', 'Cập nhật thành viên thành công')
+        toastr()->success('Cập nhật thành viên thành công');
+        return Redirect::route('members.index');
     }
 
     //Xóa thành viên
@@ -127,6 +131,8 @@ class MembersController extends Controller
         } catch (\Exception $e) {
         }
         // Sử dụng route chuẩn: members.index
-        return Redirect::route('members.index')->with('success', 'Xóa thành viên thành công');
+        // ->with('success', 'Xóa thành viên thành công')
+        toastr()->success('Xóa thành viên thành công');
+        return Redirect::route('members.index');
     }
 }

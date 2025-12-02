@@ -27,5 +27,7 @@ class News extends Model
     public function author(){
         return $this->belongsTo(Admin::class, 'created_by');
     }
-    
+    public function editor(){
+        return $this->belongsTo(Admin::class, 'updated_by');
+    }
 }

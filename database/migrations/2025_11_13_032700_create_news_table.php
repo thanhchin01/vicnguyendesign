@@ -16,14 +16,14 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('title');
-            $table->string('slug');
-            $table->string('date');
-            $table->string('sumary');
-            $table->string('content');
-            $table->string('created_by');
-            $table->string('updated_by');
+            $table->string('slug')->unique();
+            $table->string('date')->nullable();
+            $table->text('sumary')->nullable();
+            $table->longText('content');
+            $table->foreignId('created_by')->constrained('admins');
+            $table->foreignId('updated_by')->nullable()->constrained('admins');
             $table->integer('views')->default(0);
-            $table->integer('new_category_id');
+            $table->foreignId('news_category_id')->constrained('news_categories');
             $table->timestamps();
         });
     }
