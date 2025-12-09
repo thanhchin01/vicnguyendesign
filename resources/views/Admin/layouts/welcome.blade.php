@@ -67,6 +67,7 @@
     </div>
     <!--end::App Wrapper-->
     <!--begin::Script-->
+    <script src="/ckfinder/ckfinder.js"></script>
     <script src="https://cdn.ckbox.io/CKFinder/CKFinder.js"></script>
     <script>
         CKFinder.setupCKEditor();

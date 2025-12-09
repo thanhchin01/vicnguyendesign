@@ -22,7 +22,7 @@
         <div class="card card-primary card-outline mb-4">
             <!--begin::Header-->
             <div class="card-header">
-                <div class="card-title">Edit a Project</div>
+                <div class="card-title">Edit a Portfolio</div>
             </div>
             <!--end::Header-->
             <div class="card-body">
@@ -53,12 +53,14 @@
                             <input type="text" class="form-control" id="slug"
                                 name="slug" value="{{ old('slug', $portfolio->slug) }}">
                         </div>
-                        <label for="image" class="form-label">Hình ảnh</label>
+                       <label class="form-label">Hình ảnh</label>
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control" id="image"
-                                name="image" accept="image/*">
-                            <label class="input-group-text" for="image">Upload</label>
+                            <input type="text" id="image" name="image"
+                                class="form-control @error('image') is-invalid @enderror"
+                                placeholder="Chọn hình ảnh">
+                            <button type="button" class="btn btn-secondary" onclick="selectImage()">Chọn ảnh</button>
                         </div>
+                        <img id="preview-image" style="max-width: 200px; display:none; margin-top:10px;">
                         <div class="mb-3">
                             <label for="content" class="form-label">Nội dung</label>
                             <input type="text" class="form-control" id="content"
@@ -100,3 +102,36 @@
         </div>
     </div>
 @endsection
+<script src="/ckfinder/ckfinder.js"></script>
+
+<script>
+    function selectImage() {
+        CKFinder.popup({
+            chooseFiles: true,
+            width: 800,
+            height: 600,
+            onInit: function (finder) {
+
+                finder.on('files:choose', function (evt) {
+                    var fileUrl = evt.data.files.first().getUrl();
+
+                    document.getElementById('image').value = fileUrl;
+
+                    let preview = document.getElementById('preview-image');
+                    preview.src = fileUrl;
+                    preview.style.display = 'block';
+                });
+
+                finder.on('file:choose:resizedImage', function (evt) {
+                    var fileUrl = evt.data.resizedUrl;
+
+                    document.getElementById('image').value = fileUrl;
+
+                    let preview = document.getElementById('preview-image');
+                    preview.src = fileUrl;
+                    preview.style.display = 'block';
+                });
+            }
+        });
+    }
+</script>

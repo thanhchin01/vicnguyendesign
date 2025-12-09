@@ -55,13 +55,10 @@
                         <div class="input-group mb-3">
                             <input type="text" id="image" name="image"
                                 class="form-control @error('image') is-invalid @enderror"
-                                placeholder="Chọn hình bằng CKFinder">
-
+                                placeholder="Chọn hình ảnh">
                             <button type="button" class="btn btn-secondary" onclick="selectImage()">Chọn ảnh</button>
                         </div>
-
                         <img id="preview-image" style="max-width: 200px; display:none; margin-top:10px;">
-
                         <div class="mb-3">
                             <label for="content" class="form-label">Nội dung</label>
                             <input type="text" class="form-control @error('content') is-invalid @enderror" id="content"

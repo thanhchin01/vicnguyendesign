@@ -95,18 +95,18 @@ class PortfolioController extends Controller
             'status'      => 'required|in:0,1',
         ]);
 
-        $imageName = $portfolio->image;
-        if ($request->hasFile('image')) {
-            //Xóa ảnh cũ (nếu có)
-            if ($portfolio->image) {
-                File::delete(public_path('upload/portfolio/' . $portfolio->image));
-            }
-            // Upload ảnh mới
-            $file = $request->file('image');
-            $imageName = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('upload/portfolio'), $imageName);
-        }
-
+        // $imageName = $portfolio->image;
+        // if ($request->hasFile('image')) {
+        //     //Xóa ảnh cũ (nếu có)
+        //     if ($portfolio->image) {
+        //         File::delete(public_path('upload/portfolio/' . $portfolio->image));
+        //     }
+        //     // Upload ảnh mới
+        //     $file = $request->file('image');
+        //     $imageName = time() . '_' . $file->getClientOriginalName();
+        //     $file->move(public_path('upload/portfolio'), $imageName);
+        // }
+        $imageName = $request->image;
         $portfolio->update([
             'title'     => $request->title,
             'slug'      => $request->slug,
@@ -124,8 +124,11 @@ class PortfolioController extends Controller
     //Xóa
     public function destroy(Image $portfolio)
     {
-        if ($portfolio->image) {
-            File::delete(public_path('upload/portfolio/' . $portfolio->image));
+        if (!empty($portfolio->image)) {
+            $path = public_path($portfolio->image);
+            if (File::exists($path)) {
+                File::delete($path);
+            }
         }
         $portfolio->delete();
         toastr()->success('Xóa portfolio' . $portfolio->title . 'thành công!');

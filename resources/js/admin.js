@@ -1748,31 +1748,32 @@ CKEDITOR.replace('content', {
     filebrowserBrowseUrl: '/ckfinder/browser',
     filebrowserUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files'
 });
-    function selectImage() {
-        CKFinder.popup({
-            chooseFiles: true,
-            onInit: function (finder) {
-                finder.on('files:choose', function (evt) {
-                    var file = evt.data.files.first();
-                    var url = file.getUrl();
 
-                    // gán vào input
-                    document.getElementById('image').value = url;
+function selectImage() {
+    CKFinder.popup({
+        chooseFiles: true,
+        onInit: function (finder) {
+            finder.on('files:choose', function (evt) {
+                var file = evt.data.files.first();
+                var url = file.getUrl();
 
-                    // hiển thị preview
-                    const preview = document.getElementById('preview-image');
-                    preview.src = url;
-                    preview.style.display = 'block';
-                });
+                // gán vào input
+                document.getElementById('image').value = url;
 
-                finder.on('file:choose:resizedImage', function (evt) {
-                    var url = evt.data.resizedUrl;
-                    document.getElementById('image').value = url;
+                // hiển thị preview
+                const preview = document.getElementById('preview-image');
+                preview.src = url;
+                preview.style.display = 'block';
+            });
 
-                    const preview = document.getElementById('preview-image');
-                    preview.src = url;
-                    preview.style.display = 'block';
-                });
-            }
-        });
-    }
+            finder.on('file:choose:resizedImage', function (evt) {
+                var url = evt.data.resizedUrl;
+                document.getElementById('image').value = url;
+
+                const preview = document.getElementById('preview-image');
+                preview.src = url;
+                preview.style.display = 'block';
+            });
+        }
+    });
+}
