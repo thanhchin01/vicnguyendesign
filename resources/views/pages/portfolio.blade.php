@@ -78,9 +78,9 @@
          @foreach ($images as $item)
         <a class="mb-4 break-inside-avoid block text-center fade-in-up"
            title="{{ $item->title }}"
-           href="{{ asset('upload/portfolio/' . $item->image) }}">
+           href="{{ $item->image }}">
 
-            <img loading="lazy" src="{{ asset('upload/portfolio/' . $item->image) }}"
+            <img loading="lazy" src="{{ $item->image }}"
                  alt="{{ $item->title }}"
                  class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
 

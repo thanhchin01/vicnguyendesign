@@ -17,53 +17,53 @@ class ImageSeeder extends Seeder
     public function run(): void
     {
         //
-
+        $basePath = 'ckfinder/userfiles/files/portfolio/';
         $imageData = [
             [
                 'title' => 'Lagoona Binh Chau resort 01',
-                'image' => '1.jpg',
+                'image' => $basePath . '1.jpg',
                 'position' => 1,
             ],
             [
                 'title' => 'USA school 07',
-                'image' => '2.png',
+                'image' => $basePath . '2.png',
                 'position' => 2,
             ],
             [
                 'title' => 'USA school 06',
-                'image' => '3.png',
+                'image' => $basePath . '3.png',
                 'position' => 3,
             ],
 
               // Các ảnh còn lại (sẽ hiển thị ở layout Masonry)
             [
                 'title' => 'USA school 03',
-                'image' => '4.png',
+                'image' => $basePath . '4.png',
                 'position' => 4,
             ],
             [
                 'title' => 'Small garden, Jack Bian, the USA',
-                'image' => '5.png',
+                'image' => $basePath . '5.png',
                 'position' => 5,
             ],
             [
                 'title' => 'Ross Reisidence - Matt Peterson.USA.002',
-                'image' => '6.png',
+                'image' => $basePath . '6.png',
                 'position' => 6,
             ],
             [
                 'title' => 'USA school 031',
-                'image' => '7.png',
+                'image' => $basePath . '7.png',
                 'position' => 7,
             ],
             [
                 'title' => 'Small garden, Jack Bian, the USA111',
-                'image' => '8.png',
+                'image' => $basePath . '8.png',
                 'position' => 8,
             ],
             [
                 'title' => 'Ross Reisidence - Matt Peterson.USA.0022',
-                'image' => '9.png',
+                'image' => $basePath . '9.png',
                 'position' => 9,
             ],
         ];

@@ -33,7 +33,7 @@ class PortfolioController extends Controller
 
             'title'       => 'required|string|max:255',
             'slug'        => 'required|string|unique:images,slug',
-            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5048',
+            'image'       => 'nullable|string|max:255',
             'content'     => 'nullable|string',
             'album_id'    => 'required|integer',
             'status'      => 'required|in:0,1',
@@ -56,14 +56,14 @@ class PortfolioController extends Controller
             return back()->with('error', 'Lỗi xác thực: Không thể tìm thấy người dùng quản trị. Vui lòng thử lại');
         }
 
-        //Xử lý ảnh
-        $imageName = null;
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
-            $file->move(public_path('upload/portfolio'), $imageName);
-        }
-
+        // //Xử lý ảnh
+        // $imageName = null;
+        // if ($request->hasFile('image')) {
+        //     $file = $request->file('image');
+        //     $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
+        //     $file->move(public_path('upload/portfolio'), $imageName);
+        // }
+        $imageName = $request->image;
         Image::create([
             'title'      => $request->title,
             'slug'       => $request->slug,
@@ -89,7 +89,7 @@ class PortfolioController extends Controller
         $request->validate([
             'title'       => 'required|string|max:255',
             'slug'        => 'required|string|unique:images,slug,' . $portfolio->id,
-            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:7048',
+            'image'       => 'nullable|string|max:255',
             'content'     => 'nullable|string',
             'album_id'    => 'required|integer',
             'status'      => 'required|in:0,1',

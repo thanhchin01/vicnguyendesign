@@ -56,8 +56,8 @@
                     <td class="text-center">{{ $album->slug }}</td>
                     <td class="text-center">
                          @if ($album->image)
-                                <img style="width: 120px; height: 120px; object-fit: cover;"
-                                    src="{{ asset('upload/portfolio/' . $album->image) }}" alt="{{ $album->title }}"
+                                <img loading="lazy" style="width: 120px; height: 120px; object-fit: cover;"
+                                    src="{{ asset($album->image) }}" alt="{{ $album->title }}"
                                     onerror="this.onerror=null;this.src='https://placehold.co/120x120/E0E0E0/333333?text=No+Img'">
                             @else
                                 <img style="width: 120px; height: 120px; object-fit: cover;"
