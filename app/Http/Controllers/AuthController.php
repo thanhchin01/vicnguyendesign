@@ -29,7 +29,6 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ], [
             'username.required' => 'Vui lòng nhập username.',
-            // email.email => 'Nhập sai định dạng email,'
             'password.required' => 'Vui lòng nhập mật khẩu.',
             'password.min' => 'Mật khẩu phải có ít nhất 6 ký tự.',
         ]);

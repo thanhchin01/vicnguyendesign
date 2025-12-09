@@ -3,7 +3,10 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\UploadController;
+use Aws\RolesAnywhere\RolesAnywhereClient;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,9 +26,10 @@ Route::get('/', function () {
     return view('pages/home');
 });
 
-Route::get('/portfolio', function () {
-    return view('pages/portfolio');
-});
+Route::get('/portfolio', [PortfolioController::class, 'clientIndex'])->name('client.portfolio');
+// Route::get('/portfolio', function () {
+//     return view('pages/portfolio');
+// });
 
 Route::get('/model', function () {
     return view('pages/model');
@@ -95,6 +99,11 @@ Route::prefix('new')->group(function () {
     });
 });
 
+//Ckfinder
+// Route::prefix('ckfinder')->group(function () {
+//    \CKFinder\CKFinder::routes();
+// });
+
 
 // site Admin
 Route::prefix('admin')->group(function () {
@@ -138,18 +147,28 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
         return view('Admin.pages.home.home');
     })->name('admin.home');
 
-    Route::get('/project', function () {
-        return view('Admin.pages.project.project');
-    });
+
+    //2. Routes cho Portfolio
+    // Route::get('/portfolio', function () {
+    //     return view('Admin.pages.portfolio.index');
+    // });
+    Route::resource('portfolio', PortfolioController::class)->except(['show']);
+
 
     // 3. Routes cho Project
-    Route::get('/editproject', function () {
-        return view('Admin.pages.project.editproject');
-    });
+    // Route::get('/project', function () {
+    //     return view('Admin.pages.project.project');
+    // });
 
-    Route::get('/createproject', function () {
-        return view('Admin.pages.project.createproject');
-    });
+    // Route::get('/editproject', function () {
+    //     return view('Admin.pages.project.editproject');
+    // });
+
+    // Route::get('/createproject', function () {
+    //     return view('Admin.pages.project.createproject');
+    // });
+    Route::resource('project', ProjectsController::class)->except(['show']);
+
 
     // 4. Routes cho News
     // Route::get('/news', function () {

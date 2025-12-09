@@ -18,13 +18,6 @@
             </ol>
         </nav>
     </div>
-    {{-- Hiển thị thông báo thành công từ Controller --}}
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show container" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="container">
         <div class="card card-primary card-outline mb-4">
             <!--begin::Header-->

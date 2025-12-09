@@ -53,6 +53,26 @@
                                         <input type="email" class="form-control" id="email"
                                             value="{{ $admin->email }}">
                                     </div>
+                                     <div class="mt-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" class="form-control" id="username"
+                                            value="{{ $admin->username }}">
+                                    </div>
+                                    <div class="mt-3">
+                                        <label for="phone" class="form-label">Phone</label>
+                                        <input type="phone" class="form-control" id="phone"
+                                            value="{{ $admin->phone }}">
+                                    </div>
+                                     <div class="mt-3">
+                                        <label for="gender" class="form-label">Gender</label>
+                                        <input type="text" class="form-control" id="gender"
+                                            value="{{ $admin->gender }}">
+                                    </div>
+                                    <div class="mt-3">
+                                        <label for="date_of_birth" class="form-label">Birthday</label>
+                                        <input type="date" class="form-control" id="date_of_birth"
+                                            value="{{ $admin->date_of_birth }}">
+                                    </div>
                                     <div style="height: 1.5rem;"></div>
                                 </div>
                                 <div class="col-md-6">

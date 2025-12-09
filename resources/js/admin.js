@@ -1587,6 +1587,78 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 });
+// // {{-- 1. Script CKEditor (Tạo trình soạn thảo văn bản) --}}
+
+
+// let editorInstance; // Biến toàn cục để lưu trữ instance của editor
+
+// // Kích hoạt CKEditor cho thẻ textarea có id="editor"
+// if (document.querySelector('#editor')) {
+//     ClassicEditor
+//         .create(document.querySelector('#editor'), {
+//             // Cấu hình (tùy chọn)
+//         })
+//         .then(editor => {
+//             editorInstance = editor; // Lưu instance vào biến toàn cục
+//             console.log('CKEditor 5 đã được khởi tạo thành công.');
+//         })
+//         .catch(error => {
+//             console.error('Lỗi khởi tạo CKEditor:', error);
+//         });
+// }
+
+// // Thêm hàm xử lý thủ công để đảm bảo dữ liệu được đồng bộ vào textarea trước khi submit
+// document.querySelector('form').addEventListener('submit', function (event) {
+//     // Kiểm tra editorInstance đã được khởi tạo chưa
+//     if (editorInstance) {
+//         const contentTextarea = document.getElementById('editor');
+//         // Lấy dữ liệu từ editor và gán vào thẻ textarea ẩn
+//         contentTextarea.value = editorInstance.getData();
+//     }
+// });
+
+
+// // Hàm tạo Slug tự động từ Tiêu đề
+// function ChangeToSlug() {
+//     var title, slug;
+//     title = document.getElementById("title").value;
+//     slug = title.toLowerCase();
+//     slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+//     slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+//     slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+//     slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+//     slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+//     slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+//     slug = slug.replace(/đ/gi, 'd');
+//     slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+//     slug = slug.replace(/ /gi, "-");
+//     slug = slug.replace(/\-\-\-\-\-/gi, '-');
+//     slug = slug.replace(/\-\-\-\-/gi, '-');
+//     slug = slug.replace(/\-\-\-/gi, '-');
+//     slug = slug.replace(/\-\-/gi, '-');
+//     slug = '@' + slug + '@';
+//     slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+//     document.getElementById('slug').value = slug;
+// }
+// {{-- 2. Script Toastr (Thông báo) --}}
+
+// toastr.options = {
+//     "closeButton": true,
+//     "progressBar": true,
+//     "positionClass": "toast-top-right",
+//     "timeOut": "5000"
+// };
+
+// $(document).ready(function() {
+//     @if (Session::has('success'))
+//         toastr.success('{!! Session::get("success") !!}');
+//     @endif
+//     @if (Session::has('error'))
+//         toastr.error('{!! Session::get("error") !!}');
+//     @endif
+// });
+
+
 
 
 //Chuyển form
@@ -1671,3 +1743,8 @@ if ('WebSocket' in window) {
 }
 // ]]>
 
+//ckfinder
+CKEDITOR.replace('content', {
+    filebrowserBrowseUrl: '/ckfinder/browser',
+    filebrowserUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files'
+});

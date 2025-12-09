@@ -25,6 +25,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{ url('admin/portfolio') }}" class="nav-link">
+                  <i class="fa-solid fa-image"></i>
+                  <p>Portfolio</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{ url('admin/project') }}" class="nav-link">
                   <i class="fa-solid fa-list-check"></i>
                   <p>Project</p>

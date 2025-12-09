@@ -18,13 +18,13 @@
             </ol>
         </nav>
     </div>
-    {{-- Hiển thị thông báo thành công từ Controller --}}
+    {{-- Hiển thị thông báo thành công từ Controller
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show container" role="alert">
             {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    @endif
+    @endif --}}
     <div class="container">
         <div class="card card-primary card-outline mb-4">
             <!--begin::Header-->
@@ -63,7 +63,7 @@
                         <label class="input-group-text" for="image">Upload</label>
                     </div>
                     <div class="mb-3">
-                        <label for="sumary" class="form-label">Mô tả ngắn</label>
+                        <label for="sumary" class="form-label">Mô tả</label>
                         <input type="text" class="form-control @error('sumary') is-invalid @enderror" id="sumary" name="sumary"
                             value="{{ old('sumary') }}">
                     </div>
@@ -73,7 +73,7 @@
                             value="{{ old('date') }}">
                     </div>
                     <div class="mb-3">
-                        <label for="content" class="form-label">Mô tả</label>
+                        <label for="content" class="form-label">Nội dung</label>
                         <textarea name="content" id="editor" rows="10" class="form-control @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
 
                     </div>
@@ -106,3 +106,4 @@
         </div>
     </div>
 @endsection
+

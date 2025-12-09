@@ -67,8 +67,12 @@
     </div>
     <!--end::App Wrapper-->
     <!--begin::Script-->
-
+    <script src="https://cdn.ckbox.io/CKFinder/CKFinder.js"></script>
+    <script>
+        CKFinder.setupCKEditor();
+    </script>
     <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script> --}}
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
         crossorigin="anonymous"></script>

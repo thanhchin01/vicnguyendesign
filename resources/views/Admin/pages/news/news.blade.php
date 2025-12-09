@@ -25,8 +25,8 @@
     <div class="card mb-4 container">
         <div class="card-header">
             <div class=" d-flex justify-content-between">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" action="{{ route('news.index') }}" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Search" name="keyword" value="{{ request('keyword') }}">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
                 <a href="{{ route('news.create') }}" class="btn action-item btn-primary" tabindex="0"
@@ -72,22 +72,26 @@
                                     src="https://placehold.co/120x120/E0E0E0/333333?text=No+Img" alt="No Image">
                             @endif
                         </td>
-                        <td class="text-center"><span class="badge text-bg-primary">{{ $new->sumary }}</span></td>
+                        <td class="text-center"><span class="badge text-bg-primary">Xem nội dung</span></td>
                         <td class="text-center">{{ optional(\Carbon\Carbon::parse($new->date))->format('d/m/Y') }}</td>
-                        <td class="text-center"><span class="badge text-bg-primary">{{ $new->content }}</span></td>
-                        <td class="text-center">{{ $new->new_category_id }}</td>
-                        <td class="text-center">{{ $new->created_by }}</td>
+                        <td class="text-center"><span class="badge text-bg-primary">Xem nội dung</span></td>
+                        <td class="text-center">{{ $new->NewsCategories ? $new->NewsCategories->name : 'Chưa có danh mục' }}</td>
+                        <td class="text-center">{{ $new->author ? $new->author->fullname : 'Chưa xác định' }}</td>
                         <td class="text-center">
                             <div class="btn-group" role="group" aria-label="Basic action group">
-                                <a href="{{ route('news.edit', $news->id) }}" class="btn btn-primary btn-sm me-2"
+                                <a href="{{ route('news.edit', $new->slug) }}" class="btn btn-primary btn-sm me-2"
                                     title="Sửa">
                                     <i class="fas fa-edit"></i>
                                     Sửa
                                 </a>
-                                <button type="button" class="btn btn-danger btn-sm" title="Xóa">
-                                    <i class="fas fa-trash-alt"></i>
-                                    Xóa
-                                </button>
+                                <form action="{{ route('news.destroy', $new->slug) }}" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa tin tức này chứ?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                        Xóa
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>

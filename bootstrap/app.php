@@ -16,3 +16,14 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
+
+    
+    // CKFinder CSRF exceptions
+    $middleware->validateCsrfTokens(except: [
+      'ckfinder/*',
+    ]);
+
+    // CKFinder cookie encryption exceptions
+    $middleware->encryptCookies(except: [
+      'ckCsrfToken',
+    ]);

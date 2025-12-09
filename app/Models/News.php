@@ -21,13 +21,21 @@ class News extends Model
         'new_category_id',
     ];
 
-    public function NewsCategories(){
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function NewsCategories()
+    {
         return $this->belongsTo(NewsCategories::class, 'new_category_id');
     }
-    public function author(){
+    public function author()
+    {
         return $this->belongsTo(Admin::class, 'created_by');
     }
-    public function editor(){
+    public function editor()
+    {
         return $this->belongsTo(Admin::class, 'updated_by');
     }
 }

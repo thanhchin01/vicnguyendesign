@@ -29,7 +29,7 @@
 <!-- Nội dung phía dưới (cuộn được) -->
 <section class="bg-white text-black">
     {{-- ảnh ở dưới --}}
-    <!-- 3 card đầu tiên giữ nguyên -->
+    {{-- <!-- 3 card đầu tiên giữ nguyên -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
         <a class="text-center gap-3 block" title="Lagoona Binh Chau resort 01"
             href="https://vicnguyendesign.org/uploads/static/KH%20A1v4%20final.jpg">
@@ -51,11 +51,11 @@
                 class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
             <p class="font-medium mt-2">USA school 06</p>
         </a>
-    </div>
+    </div> --}}
 
     <!-- Các card phía dưới: Masonry layout -->
     <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 p-5 [column-fill:_balance]">
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="USA school 003"
+        {{-- <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="USA school 003"
             href="https://vicnguyendesign.org/uploads/static/Evergreen%20CS%20v001A4%20final.jpg">
             <img src="https://vicnguyendesign.org/uploads/static/Evergreen%20CS%20v001A4%20final.jpg" alt=""
                 class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
@@ -74,104 +74,19 @@
             <img src="https://vicnguyendesign.org/uploads/static/Evergreen%20CS%20v006A4%20final.jpg" alt=""
                 class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
             <p class="font-medium mt-2">USA school 05</p>
-        </a>
+        </a> --}}
+         @foreach ($images as $item)
+        <a class="mb-4 break-inside-avoid block text-center fade-in-up"
+           title="{{ $item->title }}"
+           href="{{ asset('upload/portfolio/' . $item->image) }}">
 
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Small garden, Jack Bian, the USA"
-            href="https://vicnguyendesign.org/uploads/static/sw%20v001A4%20final%20444.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/sw%20v001A4%20final%20444.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Small garden, Jack Bian, the USA</p>
-        </a>
+            <img loading="lazy" src="{{ asset('upload/portfolio/' . $item->image) }}"
+                 alt="{{ $item->title }}"
+                 class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
 
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Ross Reisidence - Matt Peterson.USA.002"
-            href="https://vicnguyendesign.org/uploads/static/Ross%20Residence%20v002A01sss.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/Ross%20Residence%20v002A01sss.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Ross Reisidence - Matt Peterson.USA.002</p>
+            <p class="font-medium mt-2">{{ $item->title }}</p>
         </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Ross Reisidence - Matt Peterson.USA.001"
-            href="https://vicnguyendesign.org/uploads/static/Ross%20Residence%20v001A1.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/Ross%20Residence%20v001A1.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Ross Reisidence - Matt Peterson.USA.001</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="New York City 001"
-            href="https://vicnguyendesign.org/uploads/static/night%20v002A1.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/night%20v002A1.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">New York City 001</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Resort 2021"
-            href="https://vicnguyendesign.org/uploads/static/cabill%20a1sss.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/cabill%20a1sss.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Resort 2021</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="New York City 002"
-            href="https://vicnguyendesign.org/uploads/static/night%20v001A1.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/night%20v001A1.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">New York City 002</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="ST Pancras Station"
-            href="https://vicnguyendesign.org/uploads/static/station%20v001A1sss.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/station%20v001A1sss.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">ST Pancras Station</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Vita Achriteture 22"
-            href="https://vicnguyendesign.org/uploads/static/in%20final.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/in%20final.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Vita Achriteture 22</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Vita Achriteture 21"
-            href="https://vicnguyendesign.org/uploads/static/EX%20v001A2%20final444.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/EX%20v001A2%20final444.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Vita Achriteture 21</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Wonderland plan202122"
-            href="https://vicnguyendesign.org/uploads/static/TOPCAM4%20finalsss.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/TOPCAM4%20finalsss.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Wonderland plan202122</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Shipping container"
-            href="https://vicnguyendesign.org/uploads/static/shipping%20container%20in%20v001A8%20finalsss.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/shipping%20container%20in%20v001A8%20finalsss.jpg"
-                alt="" class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Shipping container</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Fall 2021"
-            href="https://vicnguyendesign.org/uploads/static/Autumn%20in%20the%20mountains%20001ss.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/Autumn%20in%20the%20mountains%20001ss.jpg"
-                alt="" class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Fall 2021</p>
-        </a>
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Art work 2021"
-            href="https://vicnguyendesign.org/uploads/static/liv%20v001A1sss.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/liv%20v001A1sss.jpg" alt=""
-                class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Art work 2021</p>
-        </a>
-
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="Fall 2021"
-            href="https://vicnguyendesign.org/uploads/static/Autumn%20in%20the%20mountains%20001ss.jpg">
-            <img src="https://vicnguyendesign.org/uploads/static/Autumn%20in%20the%20mountains%20001ss.jpg"
-                alt="" class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
-            <p class="font-medium mt-2">Fall 2021</p>
-        </a>
+    @endforeach
     </div>
 
 </section>

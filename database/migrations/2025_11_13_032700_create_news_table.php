@@ -14,7 +14,7 @@ return new class extends Migration
         // Bảng tin tức
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('date')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('created_by')->constrained('admins');
             $table->foreignId('updated_by')->nullable()->constrained('admins');
             $table->integer('views')->default(0);
-            $table->foreignId('news_category_id')->constrained('news_categories');
+            $table->foreignId('new_category_id')->constrained('news_categories');
             $table->timestamps();
         });
     }

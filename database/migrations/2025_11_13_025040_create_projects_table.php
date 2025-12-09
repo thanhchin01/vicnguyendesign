@@ -15,17 +15,17 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
-            $table->string('image_url');
-            $table->string('description');
-            $table->string('address');
-            $table->string('date');
+            $table->string('slug')->unique();
+            $table->string('image_url')->nullable();
+            $table->text('description')->nullable();
+            $table->string('address')->nullable();
+            $table->string('date')->nullable();
             $table->integer('status')->default(1); //1:hoàn thành, 2 chưa hoàn thành
             $table->string('acreage');
             $table->string('team_design');
-            $table->string('created_by');
-            $table->string('updated_by');
-            $table->integer('category_id');
+            $table->foreignId('created_by')->constrained('admins')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('admins')->nullOnDelete();
+            $table->foreignId('category_id')->constrained('projects_categories')->cascadeOnDelete();
             $table->timestamps();
         });
     }

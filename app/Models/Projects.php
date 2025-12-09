@@ -26,12 +26,33 @@ class Projects extends Model
 
     const HOAN_THANH = 0;
     const CHUA_HOAN_THANH = 1;
+    
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
-    public function projects_categories(){
+    public function projects_categories()
+    {
         return $this->belongsTo(ProjectsCategories::class, 'category_id');
     }
 
-    public function members(){
-        return $this->belongsToMany(Members:: class, 'project_members','projects_id', 'members_id');
+    public function members()
+    {
+        return $this->belongsToMany(Members::class, 'project_members', 'projects_id', 'members_id');
+    }
+
+    public function imgaes()
+    {
+        return $this->hasMany(ProjectImages::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(Admin::class, 'created_by');
+    }
+    public function editor()
+    {
+        return $this->belongsTo(Admin::class, 'updated_by');
     }
 }

@@ -26,38 +26,48 @@
             </div>
             <!--end::Header-->
             <!--begin::Form-->
-            <form>
+            <form action="{{ route('news.update', $news->slug) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <!--begin::Body-->
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="" class="form-label">Tiêu đề</label>
-                        <input type="text" class="form-control" id="" aria-describedby="">
+                        <label for="title" class="form-label">Tiêu đề</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $news->title) }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="slug" class="form-label">Slug</label>
+                        <input type="text" class="form-control" id="slug" name="slug" value="{{ old('slug', $news->slug) }}">
                     </div>
                     <label for="" class="form-label">Hình ảnh</label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="inputGroupFile02">
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                        <label class="input-group-text" for="image">Upload</label>
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Mô tả ngắn</label>
-                        <input type="text" class="form-control" id="" aria-describedby="">
+                        <label for="sumary" class="form-label">Mô tả ngắn</label>
+                        <input type="text" class="form-control" id="sumary" name="sumary" value="{{ old('sumary', $news->sumary) }}">
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Ngày tạo</label>
-                        <input type="date" class="form-control" id="">
+                        <label for="date" class="form-label">Ngày tạo</label>
+                        <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $news->date) }}">
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Mô tả</label>
-                        <textarea name="content" id="editor" rows="10"></textarea>
+                        <label for="content" class="form-label">Mô tả</label>
+                        <textarea name="content" id="editor" rows="10">{{ old('content', $news->content) }}</textarea>
 
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Danh mục</label>
-                        <select class="form-control" name="" id="">
+                        <label for="new_category_id" class="form-label">Danh mục</label>
+                        <select class="form-control" name="new_category_id" id="new_category_id">
                             <option value="">Chọn danh mục</option>
-                            <option value="1">Nhà ở</option>
-                            <option value="2">Resoft</option>
-                            <option value="3">Biệt thự</option>
+                            {{-- BẮT ĐẦU LẶP QUA DỮ LIỆU TỪ DATABASE --}}
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}" {{-- Giữ lại giá trị cũ nếu validation thất bại --}}
+                                    {{ old('new_category_id', $news->new_category_id) == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -65,6 +75,7 @@
                 <!--begin::Footer-->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{{ route('news.index') }}" class="btn btn-secondary">Cancel</a>
                 </div>
                 <!--end::Footer-->
             </form>
