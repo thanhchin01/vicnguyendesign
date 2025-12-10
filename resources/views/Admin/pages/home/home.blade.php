@@ -78,7 +78,7 @@
                     </div>
                     <i class="fa-solid fa-users fa-2x"></i>
                 </div>
-                <a href="{{ route('members.index') }}"
+                <a href="{{ route('admin.members.index') }}"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
                     More info <i class="bi bi-link-45deg"></i>
                 </a>
@@ -117,7 +117,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer text-center">
-                    <a href="{{ route('members.index') }}"
+                    <a href="{{ route('admin.members.index') }}"
                         class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">View
                         All
                         Users</a>

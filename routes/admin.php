@@ -1,0 +1,60 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\MembersController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\ProjectsController;
+use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\UploadController;
+
+
+// site Admin
+    //2. Login
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login', [AuthController::class, 'postLogin'])->name('postLogin');
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/forgotpassword', function () {
+        return view('Admin.layouts.forgot-password');
+    });
+Route::middleware(['auth:admin'])->group(function () {
+
+    Route::get('/', function () {
+        return view('admin.layouts.welcome');
+    });
+     Route::get('/profile', function () {
+        return view('admin.layouts.profile');
+    });
+
+    Route::get('profile', [AuthController::class, 'profile'])->name('profile');
+
+    Route::get('/', function () {
+        return view('admin.pages.home.home');
+    })->name('admin.home');
+
+    //2. Routes cho Portfolio
+    Route::resource('portfolio', PortfolioController::class)->except(['show']);
+
+    // 3. Routes cho Project\
+    Route::resource('project', ProjectsController::class)->except(['show']);
+
+
+    // 4. Routes cho News
+
+    Route::resource('news', NewsController::class)->except(['show']);
+    Route::post('/upload-image', [UploadController::class, 'upload']);
+
+    //5. Members
+
+     Route::resource('members', MembersController::class)->except(['show']);
+
+
+    //6. notice
+    Route::get('/notice', function () {
+        return view('admin.pages.notice.notice');
+    });
+
+    Route::get('/details-notice', function () {
+        return view('admin.pages.notice.details-notice');
+    });
+});

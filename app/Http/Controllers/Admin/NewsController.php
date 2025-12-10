@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\News;
+use App\Http\Controllers\Controller;
 use App\Models\NewsCategories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -99,8 +100,7 @@ class NewsController extends Controller
             'new_category_id'   => $request->new_category_id,
             'created_by'        => $createdBy,
         ]);
-         toastr()->success('Thêm tin tức thành công!');
-        return redirect()->route('news.index');
+        return redirect()->route('admin.news.index')->with('success', 'Thêm tin tức thành công');
     }
 
     //Update tin tức
@@ -140,8 +140,7 @@ class NewsController extends Controller
             'new_category_id'   => $request->new_category_id,
         ]);
 
-        toastr()->success('Cập nhật tin tức thành công!');
-        return Redirect::route('news.index');
+        return Redirect::route('admin.news.index')->with('success', 'Cập nhật tin tức thành công');
     }
 
     //Xóa tin tức
@@ -154,7 +153,6 @@ class NewsController extends Controller
 
         // Sử dụng route chuẩn: members.index
         // ->with('success', 'Xóa thành viên thành công')
-        toastr()->success('Xóa tin tức thành công');
-        return Redirect::route('news.index');
+        return Redirect::route('admin.news.index')->with('success', 'Xóa tin tức thành công');
     }
 }

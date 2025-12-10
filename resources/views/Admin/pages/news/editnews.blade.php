@@ -26,7 +26,7 @@
             </div>
             <!--end::Header-->
             <!--begin::Form-->
-            <form action="{{ route('news.update', $news->slug) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.news.update', $news->slug) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <!--begin::Body-->
@@ -75,7 +75,7 @@
                 <!--begin::Footer-->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Update</button>
-                    <a href="{{ route('news.index') }}" class="btn btn-secondary">Cancel</a>
+                    <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Cancel</a>
                 </div>
                 <!--end::Footer-->
             </form>

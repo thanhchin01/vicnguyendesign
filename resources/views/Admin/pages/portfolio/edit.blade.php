@@ -10,7 +10,7 @@
                     <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ url('admin/') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('portfolio.index') }}">Portfolio</a>
+                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('admin.portfolio.index') }}">Portfolio</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <h1 class="mb-0 d-inline-block fs-6 lh-1">Edit a Portfolio</h1>
@@ -26,18 +26,8 @@
             </div>
             <!--end::Header-->
             <div class="card-body">
-                {{-- Hiển thị lỗi Validation --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <!--begin::Form-->
-                <form action="{{ route('portfolio.update', $portfolio->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.portfolio.update', $portfolio->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -47,11 +37,6 @@
                             <label for="title" class="form-label">Tiêu đề</label>
                             <input type="text" class="form-control" id="title"
                                 name="title" value="{{ old('title', $portfolio->title) }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control" id="slug"
-                                name="slug" value="{{ old('slug', $portfolio->slug) }}">
                         </div>
                        <label class="form-label">Hình ảnh</label>
                         <div class="input-group mb-3">

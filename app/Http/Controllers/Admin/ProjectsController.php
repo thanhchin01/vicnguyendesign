@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\ProjectImages;
 use App\Models\Projects;
 use App\Models\ProjectsCategories;
@@ -18,19 +19,19 @@ class ProjectsController extends Controller
     {
         //
         $projects = Projects::orderBy('id', 'DESC')->get();
-        return view('Admin.pages.project.project', compact('projects'));
+        return view('admin.pages.project.project', compact('projects'));
     }
 
     public function create()
     {
         $categories = ProjectsCategories::all();
-        return view('Admin.pages.project.createproject', compact('categories'));
+        return view('admin.pages.project.createproject', compact('categories'));
     }
 
     public function edit(Projects $project)
     {
         $categories = ProjectsCategories::all();
-        return view('Admin.pages.project.editproject', compact('project', 'categories'));
+        return view('admin.pages.project.editproject', compact('project', 'categories'));
     }
 
     //Thêm dự án
@@ -67,7 +68,7 @@ class ProjectsController extends Controller
         //Lấy id người tạo
         $created_by = Auth::guard('admin')->id();
         if (is_null($created_by)) {
-            Log::error('Admin ID not found during project creation. Check authencation status.');
+            Log::error('admin ID not found during project creation. Check authencation status.');
             return back()->with('error', 'Lỗi xác thực: không thể tìm thấy người dùng quản trị. Vui lòng thử lại!');
         }
 
@@ -108,9 +109,7 @@ class ProjectsController extends Controller
             }
         }
 
-        // ->with('success', 'Thêm thành viên thành công')
-        toastr()->success('Thêm Dự án thành công');
-        return redirect()->route('project.index');
+        return redirect()->route('admin.project.index')->with('success', 'Thêm dự án ' . $request->title . ' thành công');
     }
 
     //Cập nhật dự án
@@ -155,9 +154,7 @@ class ProjectsController extends Controller
             'status'                    => $request->status,
         ]);
 
-        
-        toastr()->success('Cập nhật dự án thành công!');
-        return redirect()->route('project.index');
+        return redirect()->route('admin.project.index')->with('success', 'Cập nhật dự án' . $request->title . 'thành công');
     }
 
     // Xóa dự án
@@ -175,9 +172,7 @@ class ProjectsController extends Controller
         }
         $project->delete();
 
-        // Sử dụng route chuẩn: members.index
-        // ->with('success', 'Xóa thành viên thành công')
-        toastr()->success('Xóa dự án thành công');
-        return Redirect::route('project.index');
+
+        return Redirect::route('admin.project.index')->with('success', 'Xóa dự án' . $project->title . 'thành công');
     }
 }

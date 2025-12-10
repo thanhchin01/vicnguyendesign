@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -14,9 +15,9 @@ class AuthController extends Controller
     public function login()
     {
         if (Auth::guard('admin')->check()) {
-            return redirect()->route('admin.home');
+            return redirect()->route('admin.admin.home');
         }
-        return view('Admin.layouts.login');
+        return view('admin.layouts.login');
     }
 
     // Xử lý logic đăng nhập
@@ -53,18 +54,16 @@ class AuthController extends Controller
             // Đăng nhập thành công
             $request->session()->regenerate();
 
-            toastr()->success('Đăng nhập thành công! Xin chào'  . Auth::guard('admin')->user()->fullname);
-            return redirect()->route('admin.home');
-            // return redirect()->intended(route('admin.home')) // Chuyển hướng đến dashboard
-            //                  ->with('success', 'Đăng nhập thành công! Xin chào ' . Auth::guard('admin')->user()->fullname);
+            return redirect()->intended(route('admin.admin.home')) // Chuyển hướng đến dashboard
+                             ->with('success', 'Đăng nhập thành công! Xin chào ' . Auth::guard('admin')->user()->fullname);
         }
 
         // 4. Đăng nhập thất bại
-        toastr()->error('Username hoặc mật khẩu không chính xác. Vui lòng thử lại');
-        return back()->withInput($request->only('username'));
-        // return back()->withErrors([
-        //     'username' => 'Username hoặc mật khẩu không chính xác. Vui lòng thử lại',
-        // ])->withInput($request->only('username')); // Giữ lại email trên form
+        // toastr()->error('Username hoặc mật khẩu không chính xác. Vui lòng thử lại');
+        // return back()->withInput($request->only('username'));
+        return back()->withErrors([
+            'username' => 'Username hoặc mật khẩu không chính xác. Vui lòng thử lại',
+        ])->withInput($request->only('username')); // Giữ lại email trên form
     }
 
     //Logout
@@ -75,10 +74,9 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        toastr()->success('Đăng xuất thành công');
-
-        return redirect()->route('login');
-        // return redirect()->route('login')->with('success', 'Bạn đã đăng xuất thành công.');
+        // toastr()->success('Đăng xuất thành công');
+        // return redirect()->route('admin.login');
+        return redirect()->route('admin.login')->with('success', 'Bạn đã đăng xuất thành công.');
     }
 
     //Profile
@@ -86,13 +84,11 @@ class AuthController extends Controller
     {
         //Lấy thông tin  admin đang đăng nhập
         $admin = Auth::guard('admin')->user();
-
         //Kiểm tra bảo vệ: Mặc dù đã có middleware, đây là bước kiểm tra an toàn.
         if (!$admin) {
-            return redirect()->route('login');
+            return redirect()->route('admin.login');
         }
-
         //TRuyền biến $admin chứa thông tin người dùng sang view profile
-        return view('Admin.layouts.profile', compact('admin'));
+        return view('admin.layouts.profile', compact('admin'));
     }
 }

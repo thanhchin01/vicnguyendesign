@@ -25,11 +25,11 @@
     <div class="card mb-4 container">
         <div class="card-header">
             <div class=" d-flex justify-content-between">
-                <form class="d-flex" role="search" action="{{ route('news.index') }}" method="GET">
+                <form class="d-flex" role="search" action="{{ route('admin.news.index') }}" method="GET">
                     <input class="form-control me-2" type="search" placeholder="Search" name="keyword" value="{{ request('keyword') }}">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
-                <a href="{{ route('news.create') }}" class="btn action-item btn-primary" tabindex="0"
+                <a href="{{ route('admin.news.create') }}" class="btn action-item btn-primary" tabindex="0"
                     aria-controls="botble-member-tables-member-table" type="button">
                     <svg class="icon svg-icon-ti-ti-plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -79,12 +79,12 @@
                         <td class="text-center">{{ $new->author ? $new->author->fullname : 'Chưa xác định' }}</td>
                         <td class="text-center">
                             <div class="btn-group" role="group" aria-label="Basic action group">
-                                <a href="{{ route('news.edit', $new->slug) }}" class="btn btn-primary btn-sm me-2"
+                                <a href="{{ route('admin.news.edit', $new->slug) }}" class="btn btn-primary btn-sm me-2"
                                     title="Sửa">
                                     <i class="fas fa-edit"></i>
                                     Sửa
                                 </a>
-                                <form action="{{ route('news.destroy', $new->slug) }}" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa tin tức này chứ?');">
+                                <form action="{{ route('admin.news.destroy', $new->slug) }}" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa tin tức này chứ?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" title="Xóa">

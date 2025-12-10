@@ -10,7 +10,7 @@
                     <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ url('admin/') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('members.index') }}">Member</a>
+                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('admin.members.index') }}">Member</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <h1 class="mb-0 d-inline-block fs-6 lh-1">Create a Member</h1>
@@ -38,7 +38,7 @@
                     </div>
                 @endif
                 <!--begin::Form-->
-                <form action="{{ route('members.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.members.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -87,7 +87,7 @@
                     <div class="d-flex justify-content-end mt-4">
                         <button type="submit" class="btn btn-primary me-2">Create</button>
                         {{-- Link Hủy (Sử dụng route chuẩn members.index) --}}
-                        <a href="{{ route('members.index') }}" class="btn btn-secondary">Hủy
+                        <a href="{{ route('admin.members.index') }}" class="btn btn-secondary">Hủy
                         </a>
                     </div>
                     <!--end::Footer-->

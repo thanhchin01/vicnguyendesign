@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -14,17 +15,17 @@ class MembersController extends Controller
     {
         $members = Members::orderBy('id', 'DESC')->get();
 
-        return view('Admin.pages.member.member', compact('members'));
+        return view('admin.pages.member.member', compact('members'));
     }
     //
     public function create()
     {
-        return view('Admin.pages.member.createmember');
+        return view('admin.pages.member.createmember');
     }
 
     public function edit(Members $member)
     {
-        return view('Admin.pages.member.editmember', compact('member'));
+        return view('admin.pages.member.editmember', compact('member'));
     }
 
     //Thêm thành viên
@@ -60,9 +61,7 @@ class MembersController extends Controller
             'status'    => $request->status,
         ]);
 
-        // ->with('success', 'Thêm thành viên thành công')
-        toastr()->success('Thêm thành viên thành công');
-        return redirect()->route('members.index');
+        return redirect()->route('admin.members.index')->with('success', 'Thêm thành viên thành công');
     }
 
 
@@ -106,10 +105,7 @@ class MembersController extends Controller
             'status'    => $request->status,
         ]);
 
-        // Sử dụng route chuẩn: members.index
-        // ->with('success', 'Cập nhật thành viên thành công')
-        toastr()->success('Cập nhật thành viên thành công');
-        return Redirect::route('members.index');
+        return Redirect::route('admin.members.index')->with('success', 'Cập nhật thành viên thành công');
     }
 
     //Xóa thành viên
@@ -130,9 +126,7 @@ class MembersController extends Controller
             DB::statement("ALTER TABLE members AUTO_INCREMENT = $nextId");
         } catch (\Exception $e) {
         }
-        // Sử dụng route chuẩn: members.index
-        // ->with('success', 'Xóa thành viên thành công')
-        toastr()->success('Xóa thành viên thành công');
-        return Redirect::route('members.index');
+
+        return Redirect::route('admin.members.index')->with('success', 'Xóa thành viên thành công');
     }
 }

@@ -10,7 +10,7 @@
                     <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ url('admin/') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('portfolio.index') }}">Portfolio</a>
+                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('admin.portfolio.index') }}">Portfolio</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <h1 class="mb-0 d-inline-block fs-6 lh-1">Create a Portfolio</h1>
@@ -26,36 +26,21 @@
             </div>
             <!--end::Header-->
             <div class="card-body">
-                {{-- Hiển thị lỗi Validation --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <!--begin::Form-->
-                <form action="{{ route('portfolio.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.portfolio.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--begin::Body-->
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="title" class="form-label">Tiêu đề</label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                                name="title" value="{{ old('title') }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug"
-                                name="slug" value="{{ old('slug') }}">
+                                name="title" value="{{ old('title') }}" required>
                         </div>
                         <label class="form-label">Hình ảnh</label>
                         <div class="input-group mb-3">
                             <input type="text" id="image" name="image"
                                 class="form-control @error('image') is-invalid @enderror"
-                                placeholder="Chọn hình ảnh">
+                                placeholder="Chọn hình ảnh" required>
                             <button type="button" class="btn btn-secondary" onclick="selectImage()">Chọn ảnh</button>
                         </div>
                         <img id="preview-image" style="max-width: 200px; display:none; margin-top:10px;">
@@ -67,7 +52,7 @@
                         <div class="mb-3">
                             <label for="album_id" class="form-label">Danh mục</label>
                             <select class="form-control @error('album_id') is-invalid @enderror" name="album_id"
-                                id="album_id">
+                                id="album_id" required>
                                 <option value="">Chọn danh mục</option>
                                 {{-- BẮT ĐẦU LẶP QUA DỮ LIỆU TỪ DATABASE --}}
                                 @foreach ($albums as $album)

@@ -34,7 +34,7 @@
                 </form>
 
                 {{-- Nút Thêm mới --}}
-                <a href="{{ route('members.create') }}" class="btn action-item btn-primary" tabindex="0"
+                <a href="{{ route('admin.members.create') }}" class="btn action-item btn-primary" tabindex="0"
                     aria-controls="botble-member-tables-member-table" type="button">
                     <svg class="icon svg-icon-ti-ti-plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -94,12 +94,12 @@
                         <td class="text-center">
                             <div class="btn-group" role="group" aria-label="Basic action group">
                                 {{-- Nút Sửa --}}
-                                <a href="{{ route('members.edit', $member->id) }}" class="btn btn-primary btn-sm me-2" title="Sửa">
+                                <a href="{{ route('admin.members.edit', $member->id) }}" class="btn btn-primary btn-sm me-2" title="Sửa">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
 
                                 {{-- Nút Xóa (Sử dụng form cho action DELETE) --}}
-                                <form action="{{ route('members.destroy', $member->id) }}" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa thành viên này không?');">
+                                <form action="{{ route('admin.members.destroy', $member->id) }}" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa thành viên này không?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" title="Xóa">

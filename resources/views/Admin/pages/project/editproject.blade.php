@@ -26,7 +26,7 @@
             </div>
             <!--end::Header-->
             <!--begin::Form-->
-            <form action="{{ route('project.update', $project->slug) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.project.update', $project->slug) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

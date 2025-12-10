@@ -10,7 +10,7 @@
                     <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ url('admin/') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('news.index') }}">News</a>
+                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('admin.news.index') }}">News</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <h1 class="mb-0 d-inline-block fs-6 lh-1">Create a News</h1>
@@ -44,7 +44,7 @@
                     </div>
                 @endif
                 <!--begin::Form-->
-                <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -96,7 +96,7 @@
                 <div class="card-footer">
                     <div class="d-flex justify-content-end ">
                     <button type="submit" class="btn btn-primary me-2">Create</button>
-                    <a href="{{ route('news.index') }}" class="btn btn-secondary">Hủy </a>
+                    <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Hủy </a>
                 </div>
                 </div>
             <!--end::Footer-->

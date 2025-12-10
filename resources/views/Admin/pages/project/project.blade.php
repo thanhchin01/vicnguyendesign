@@ -22,7 +22,7 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
-                <a href="{{ route('project.create') }}" class="btn action-item btn-primary" tabindex="0"
+                <a href="{{ route('admin.project.create') }}" class="btn action-item btn-primary" tabindex="0"
                     aria-controls="botble-member-tables-member-table" type="button">
                     <svg class="icon svg-icon-ti-ti-plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -82,12 +82,12 @@
                         <td class="text-center">{{ $project->author ? $project->author->fullname : 'Chưa xác định' }}</td>
                         <td class="text-center">
                             <div class="btn-group" role="group" aria-label="Basic action group">
-                                <a href="{{ route('project.edit', $project->slug) }}" class="btn btn-primary btn-sm me-2"
+                                <a href="{{ route('admin.project.edit', $project->slug) }}" class="btn btn-primary btn-sm me-2"
                                     title="Sửa">
                                     <i class="fas fa-edit"></i>
                                     Sửa
                                 </a>
-                                <form action="{{ route('project.destroy', $project->slug) }}" method="POST" onsubmit="return confirm('Bạn có chắc muốn xóa dự án này không?')">
+                                <form action="{{ route('admin.project.destroy', $project->slug) }}" method="POST" onsubmit="return confirm('Bạn có chắc muốn xóa dự án này không?')">
                                     @csrf
                                     @method('DELETE')
 

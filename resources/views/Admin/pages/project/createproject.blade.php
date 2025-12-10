@@ -10,7 +10,7 @@
                     <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ url('admin/') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('project.index') }}">Projects</a>
+                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('admin.project.index') }}">Projects</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <h1 class="mb-0 d-inline-block fs-6 lh-1">Create a project</h1>
@@ -37,7 +37,7 @@
                     </div>
                 @endif
                 <!--begin::Form-->
-                <form action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--begin::Body-->
                     <div class="card-body">

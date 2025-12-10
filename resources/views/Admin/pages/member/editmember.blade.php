@@ -10,7 +10,7 @@
                     <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ url('admin/') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('members.index') }}">Member</a>
+                    <a class="mb-0 d-inline-block fs-6 lh-1" href="{{ route('admin.members.index') }}">Member</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <h1 class="mb-0 d-inline-block fs-6 lh-1">Edit Member</h1>
@@ -36,7 +36,7 @@
                 </div>
                 <!--end::Header-->
                 <!--begin::Form-->
-                <form action="{{ route('members.update', $member->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.members.update', $member->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT') {{-- Bắt buộc phải có để gửi yêu cầu PUT đến Controller --}}
                     <!--begin::Body-->
@@ -90,7 +90,7 @@
                     <!--begin::Footer-->
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Update</button>
-                        <a href="{{ route('members.index') }}" class="btn btn-secondary">Cancel</a>
+                        <a href="{{ route('admin.members.index') }}" class="btn btn-secondary">Cancel</a>
                     </div>
                     <!--end::Footer-->
                 </form>
