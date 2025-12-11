@@ -97,3 +97,6 @@ Route::prefix('new')->group(function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     require __DIR__ . '/admin.php';
 });
+Route::get('/login', function () {
+    return redirect()->route('admin.login');
+})->name('login');
