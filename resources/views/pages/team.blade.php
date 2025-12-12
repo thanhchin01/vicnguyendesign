@@ -25,62 +25,16 @@
         <!-- 2 Phần nội dung bên dưới slogan -->
         <div class="mt-10 md:mt-10 flex flex-col space-y-4 p-4 text-center md:text-left container mx-auto ">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center ">
-                <a href="" class="h-full">
-                    <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
-                        src="https://vicnguyendesign.org/frontend/images/img_team/vicnguyen.jpg" alt="">
-                    <p class="text-lg font-semibold">VIC NGUYEN</p>
-                    <p>CEO & Lead 3D Artist</p>
-                </a>
-                <a href="" class="h-full">
-                    <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
-                        src="https://vicnguyendesign.org/frontend/images/img_team/NguyenHoang.jpg" alt="">
-                    <p class="text-lg font-semibold">NGUYEN HOANG</p>
-                    <p>Animation Expert</p>
-                </a>
-                <a href="" class="h-full">
-                    <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
-                        src="https://vicnguyendesign.org/frontend/images/img_team/Phamxuanha.jpg" alt="">
-                    <p class="text-lg font-semibold">PHAM XUAN HA</p>
-                    <p>3D Artist Generalist</p>
-                    <p>Architectical</p>
-                </a>
-                <a href="" class="h-full">
-                    <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
-                        src="https://vicnguyendesign.org/frontend/images/img_team/NguyenNga.jpg" alt="">
-                    <p class="text-lg font-semibold">NGUYEN NGA</p>
-                    <p>3D Artist Generalist</p>
-                    <p>Designer poses</p>
-                </a>
-                <a href="" class="h-full">
-                    <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
-                        src="https://vicnguyendesign.org/frontend/images/img_team/Phamthanhdat.jpg" alt="">
-                    <p class="text-lg font-semibold">PHAM THANH DAT</p>
-                    <p>3D Artist Generalist</p>
-                    <p>Architectical</p>
-                </a>
-                <a href="" class="h-full">
-                    <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
-                        src="https://vicnguyendesign.org/frontend/images/img_team/Vanguyen.jpg" alt="">
-                    <p class="text-lg font-semibold">VA NGUYEN</p>
-                    <p>3D Artist Generalist</p>
-                    <p>Designer</p>
-                </a>
-                <a href="" class="h-full">
-                    <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
-                        src="https://vicnguyendesign.org/frontend/images/img_team/PhamPhung.jpg" alt="">
-                    <p class="text-lg font-semibold">PHAM PHUNG</p>
-                    <p>3D Artist Generalist</p>
-                    <p>Designer</p>
-                </a>
-                <a href="" class="h-full">
-                    <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
-                        src="https://vicnguyendesign.org/frontend/images/img_team/Lee_Thanh.jpg" alt="">
-                    <p class="text-lg font-semibold">LEE THANH</p>
-                    <p>3D Artist Generalist</p>
-                    <p>Designer</p>
-                </a>
+                @foreach ($member as $item)
+                    <div class="h-full">
+                        <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
+                            src="{{ $item->avatar }}" alt="">
+                        <p class="text-lg font-semibold">{{ $item->name }}</p>
+                        <p>{{ $item->position }}</p>
+                    </div>
+                @endforeach
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
+            {{-- <div class="grid grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
                 <a href="" class="h-full">
                     <img class="rounded-xl border border-white shadow-lg w-40 md:w-64 h-[300px] object-cover"
                         src="https://vicnguyendesign.org/frontend/images/img_team/LyNguyen.jpg" alt="">
@@ -102,7 +56,7 @@
                     <p>3D Artist Generalist</p>
                     <p>Designer</p>
                 </a>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>

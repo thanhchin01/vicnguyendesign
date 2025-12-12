@@ -1,9 +1,8 @@
 <?php
 
-
+use App\Http\Controllers\Client\MembersController;
 use App\Http\Controllers\Client\PortfolioController;
-use App\Http\Controllers\ProjectsController;
-use Aws\RolesAnywhere\RolesAnywhereClient;
+use App\Http\Controllers\Client\ContactController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,17 +28,20 @@ Route::get('/model', function () {
     return view('pages/model');
 });
 
-Route::get('/team', function () {
-    return view('pages/team');
-});
+// Route::get('/team', function () {
+//     return view('pages/team');
+// });
+Route::get('/team', [MembersController::class, 'clientTeamIndex'])->name('client.member');
 
 Route::get('/about', function () {
     return view('pages/about');
 });
 
-Route::get('/contact', function () {
-    return view('pages/contact');
-});
+// Route::get('/contact', function () {
+//     return view('pages/contact');
+// });
+// Route::post('contact', [ContactController::class, 'store'])->name('client.contact');
+Route::resource('contact', ContactController::class)->except(['show']);
 
 
 // ===== SITE MỚI =====

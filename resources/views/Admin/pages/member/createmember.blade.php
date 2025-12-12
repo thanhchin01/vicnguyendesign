@@ -27,16 +27,6 @@
             <!--end::Header-->
             <!--begin::Body-->
             <div class="card-body">
-                {{-- Hiển thị lỗi Validation --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <!--begin::Form-->
                 <form action="{{ route('admin.members.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -48,13 +38,15 @@
                     </div>
                     <label for="avatar" class="form-label">Hình ảnh (Avatar)</label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
-                        <label class="input-group-text" for="avatar" name="avatar">Upload</label>
+                        <input type="text" id="avatar" name="avatar"
+                            class="form-control @error('avatar') is-invalid @enderror" placeholder="Chọn hình ảnh" required>
+                        <button type="button" class="btn btn-secondary" onclick="selectAvatar()">Chọn ảnh</button>
                     </div>
+                    <img id="preview-avatar" style="max-width: 200px; display:none; margin-top:10px;">
                     <div class="mb-3">
                         <label for="graduate" class="form-label">Tốt nghiệp</label>
                         <input type="text" class="form-control" id="graduate" name="graduate"
-                            value="{{ old('graduate') }}" required>
+                            value="{{ old('graduate') }}">
                     </div>
                     <div class="mb-3">
                         <label for="position" class="form-label">Chức vụ</label>
@@ -73,8 +65,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="award" class="form-label">Giải thưởng</label>
-                        <input type="text" class="form-control" id="award" name="award"
-                            value="{{ old('award') }}" required>
+                        <input type="text" class="form-control" id="award" name="award" value="{{ old('award') }}"
+                            required>
                     </div>
                     <div class="mb-3">
                         <label for="status" class="form-label">Trạng thái <span class="text-danger">*</span></label>

@@ -75,35 +75,16 @@
                 class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
             <p class="font-medium mt-2">USA school 05</p>
         </a> --}}
-         @foreach ($images as $item)
-        <a class="mb-4 break-inside-avoid block text-center fade-in-up"
-           title="{{ $item->title }}"
-           href="{{ $item->image }}">
+        @foreach ($images as $item)
+            <a class="mb-4 break-inside-avoid block text-center fade-in-up" title="{{ $item->title }}"
+                href="{{ $item->image }}">
 
-            <img loading="lazy" src="{{ $item->image }}"
-                 alt="{{ $item->title }}"
-                 class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
+                <img loading="lazy" src="{{ $item->image }}" alt="{{ $item->title }}"
+                    class="w-full rounded-xl shadow-md hover:scale-102 transition-transform duration-300">
 
-            <p class="font-medium mt-2">{{ $item->title }}</p>
-        </a>
-    @endforeach
+                <p class="font-medium mt-2">{{ $item->title }}</p>
+            </a>
+        @endforeach
     </div>
 
 </section>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const elements = document.querySelectorAll('.fade-in-up');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, {
-            threshold: 0.2
-        }); // xuất hiện 20% là bắt đầu hiện
-
-        elements.forEach(el => observer.observe(el));
-    });
-</script>

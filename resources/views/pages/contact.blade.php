@@ -27,28 +27,36 @@
 
         <!-- 🔹 Div 2: form -->
         <div class="p-4 container mx-auto mt-10 md:mt-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="flex flex-col gap-4">
-                    <label>Your name</label>
-                    <input class="px-8 py-3 border border-white bg-transparent rounded-lg w-full" type="text">
-                    <label>Email</label>
-                    <input class="px-8 py-3 border border-white bg-transparent rounded-lg w-full" type="email">
-                    <label>Object</label>
-                    <input class="px-8 py-3 border border-white bg-transparent rounded-lg w-full" type="text">
-                </div>
-                <div class="flex flex-col gap-4">
-                    <label>Your message</label>
-                    <textarea class="border border-white bg-transparent rounded-lg p-4 w-full" rows="10"></textarea>
-                </div>
-            </div>
+            <form action="{{ route('contact.store') }}" method="POST">
+                @csrf
 
-            <!-- Nút gửi căn giữa -->
-            <div class="flex justify-center mt-8">
-                <button
-                    class="px-8 py-3 border border-white hover:bg-white/60 transition duration-300 text-white font-semibold rounded-lg shadow-md transition duration-300">
-                    Send
-                </button>
-            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-4">
+                        <label>Your name</label>
+                        <input class="px-8 py-3 border border-white bg-transparent rounded-lg w-full" type="text"
+                            name="fullname" placeholder="Nhập tên của bạn" required>
+                        <label>Email</label>
+                        <input class="px-8 py-3 border border-white bg-transparent rounded-lg w-full" type="email"
+                            name="email" placeholder="Nhập email của bạn" required>
+                        <label>Object</label>
+                        <input class="px-8 py-3 border border-white bg-transparent rounded-lg w-full" type="text"
+                            name="object">
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <label>Your message</label>
+                        <textarea class="border border-white bg-transparent rounded-lg p-4 w-full" rows="10" name="message"
+                            placeholder="Nhập nội dung" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Nút gửi căn giữa -->
+                <div class="flex justify-center mt-8">
+                    <button type="submit"
+                        class="px-8 py-3 border border-white hover:bg-white/60 transition duration-300 text-white font-semibold rounded-lg shadow-md transition duration-300">
+                        Send
+                    </button>
+                </div>
+            </form>
         </div>
 
     </div>

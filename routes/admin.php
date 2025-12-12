@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\UploadController;
-
+use App\Http\Controllers\Admin\ContactController;
 
 // site Admin
     //2. Login
@@ -50,11 +50,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
 
     //6. notice
-    Route::get('/notice', function () {
-        return view('admin.pages.notice.notice');
-    });
-
-    Route::get('/details-notice', function () {
-        return view('admin.pages.notice.details-notice');
-    });
+    Route::get('/notice', [ContactController::class, 'index'])->name('admin.contacts');
+    Route::get('/notice-details/{id}', [ContactController::class, 'details'])->name('details');
+    Route::delete('/notice/{id}',[ ContactController::class, 'destroy'])->name('destroy');
 });

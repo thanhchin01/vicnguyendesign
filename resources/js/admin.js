@@ -1777,3 +1777,66 @@ function selectImage() {
         }
     });
 }
+
+
+
+window.selectImage = function () {
+    CKFinder.popup({
+        chooseFiles: true,
+        width: 800,
+        height: 600,
+        onInit: function (finder) {
+
+            finder.on('files:choose', function (evt) {
+                const fileUrl = evt.data.files.first().getUrl();
+
+                document.getElementById('image').value = fileUrl;
+
+                const preview = document.getElementById('preview-image');
+                preview.src = fileUrl;
+                preview.style.display = 'block';
+            });
+
+            finder.on('file:choose:resizedImage', function (evt) {
+                const fileUrl = evt.data.resizedUrl;
+
+                document.getElementById('image').value = fileUrl;
+
+                const preview = document.getElementById('preview-image');
+                preview.src = fileUrl;
+                preview.style.display = 'block';
+            });
+        }
+    });
+};
+
+
+window.selectAvatar = function () {
+    CKFinder.popup({
+        chooseFiles: true,
+        width: 800,
+        height: 600,
+        onInit: function (finder) {
+
+            finder.on('files:choose', function (evt) {
+                const fileUrl = evt.data.files.first().getUrl();
+
+                document.getElementById('avatar').value = fileUrl;
+
+                const preview = document.getElementById('preview-avatar');
+                preview.src = fileUrl;
+                preview.style.display = 'block';
+            });
+
+            finder.on('file:choose:resizedImage', function (evt) {
+                const fileUrl = evt.data.resizedUrl;
+
+                document.getElementById('avatar').value = fileUrl;
+
+                const preview = document.getElementById('preview-avatar');
+                preview.src = fileUrl;
+                preview.style.display = 'block';
+            });
+        }
+    });
+};

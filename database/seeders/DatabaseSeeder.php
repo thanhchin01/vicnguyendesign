@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('news_categories')->truncate();
         \Illuminate\Support\Facades\DB::table('admins')->truncate();
         \Illuminate\Support\Facades\DB::table('images')->truncate();
-
+        \Illuminate\Support\Facades\DB::table('members')->truncate();
 
         \Illuminate\Support\Facades\Schema::enableForeignKeyConstraints();
 
@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             ProjectCategorySeeder::class,
             ImageAlbumSeeder::class,
             ImageSeeder::class,
+            MemberSeeder::class,
         ]);
         // User::factory(10)->create();
 

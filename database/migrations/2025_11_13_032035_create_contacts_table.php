@@ -16,9 +16,9 @@ return new class extends Migration
             $table->id();
             $table->string('fullname');
             $table->string('email');
-            $table->string('job');
-            $table->string('age');
-            $table->string('phone');
+            $table->string('object')->nullable();
+            $table->text('message')->nullable();
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

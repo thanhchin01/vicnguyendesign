@@ -7,19 +7,25 @@ use App\Http\Requests\Admin\StrorePortfolioRequest;
 use App\Http\Requests\Admin\UpdatePortfolioRequest;
 use App\Models\Image;
 use App\Models\ImageAlbum;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
-use function Flasher\Toastr\Prime\toastr;
-
 class PortfolioController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $albums = Image::orderBy('id', 'ASC')->paginate(5);
+        $query = Image::query();
+        if ($request->has('keyword') && $request->keyword != '') {
+            $keyword = $request->keyword;
+            $query->where('title', 'like', "%$keyword%")
+                  ->orWhere('created_by','like', "%$keyword%");
+        }
+
+        $albums = $query->orderBy('id', 'ASC')->paginate(5);
         return view('Admin.pages.portfolio.index', compact('albums'));
     }
 

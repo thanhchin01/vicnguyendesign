@@ -18,8 +18,8 @@
     <div class="card mb-4 container">
         <div class="card-header">
             <div class=" d-flex justify-content-between">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" action="{{ route('admin.portfolio.index') }}" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Search" name="keyword" value="{{ request('keyword') }}">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
                 <a href="{{ route('admin.portfolio.create') }}" class="btn action-item btn-primary" tabindex="0"

@@ -36,7 +36,8 @@
                 </div>
                 <!--end::Header-->
                 <!--begin::Form-->
-                <form action="{{ route('admin.members.update', $member->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.members.update', $member->id) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT') {{-- Bắt buộc phải có để gửi yêu cầu PUT đến Controller --}}
                     <!--begin::Body-->
@@ -46,11 +47,13 @@
                             <input type="text" class="form-control" id="name" name="name"
                                 value="{{ old('name', $member->name) }}" required>
                         </div>
-                        <label for="avatar" class="form-label">Hình ảnh</label>
+                        <label for="avatar" class="form-label">Hình ảnh (Avatar)</label>
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control" id="avatar" name="avatar">
-                            <label class="input-group-text" for="avatar">Upload ảnh mới</label>
+                            <input type="text" id="avatar" name="avatar"
+                                class="form-control @error('avatar') is-invalid @enderror" placeholder="Chọn hình ảnh">
+                            <button type="button" class="btn btn-secondary" onclick="selectAvatar()">Chọn ảnh</button>
                         </div>
+                        <img id="preview-avatar" style="max-width: 200px; display:none; margin-top:10px;">
                         <div class="mb-3">
                             <label for="graduate" class="form-label">Tốt nghiệp</label>
                             <input type="text" class="form-control" id="graduate" name="graduate"

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreMemberRequest;
+use App\Http\Requests\Admin\UpdateMemberRequest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -11,10 +13,16 @@ use Illuminate\Http\Request;
 
 class MembersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $members = Members::orderBy('id', 'DESC')->get();
+        $query = Members::query();
+        if ($request->has('keyword') && $request->keyword !=''){
+            $keyword = $request->keyword;
+            $query->where('name', 'like', "%$keyword%")
+                  ->orWhere('position', 'like', "%$keyword%");
+        }
 
+        $members = $query->orderBy('id', 'asc')->paginate(3);
         return view('admin.pages.member.member', compact('members'));
     }
     //
@@ -29,27 +37,15 @@ class MembersController extends Controller
     }
 
     //Thêm thành viên
-    public function store(Request $request)
+    public function store(StoreMemberRequest $request)
     {
-        //Validate
-        $request->validate([
-            'name'      => 'required|string|max:255',
-            'avatar'    => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5048',
-            'graduate'  => 'nullable|string',
-            'join'      => 'nullable|string',
-            'project'   => 'nullable|string',
-            'award'     => 'nullable|string',
-            'position'  => 'nullable|string|max:255',
-            'status'    => 'required|in:0,1',
-        ]);
-
-        $avatarName = null;
-        if ($request->hasFile('avatar')) {
-            $file = $request->file('avatar');
-            $avatarName = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('upload/member'), $avatarName);
-        }
-
+        // $avatarName = null;
+        // if ($request->hasFile('avatar')) {
+        //     $file = $request->file('avatar');
+        //     $avatarName = time() . '_' . $file->getClientOriginalName();
+        //     $file->move(public_path('upload/member'), $avatarName);
+        // }
+        $avatarName = $request->avatar;
         Members::create([
             'name'      => $request->name,
             'avatar'    => $avatarName,
@@ -66,34 +62,21 @@ class MembersController extends Controller
 
 
     // Cập nhật thành viên
-    public function update(Request $request, Members $member)
+    public function update(UpdateMemberRequest $request, Members $member)
     {
-        // Validate dữ liệu
-        $request->validate([
-            'name'      => 'required|string|max:255',
-            'avatar'    => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5048',
-            'graduate'  => 'nullable|string',
-            'join'      => 'nullable|date',
-            'project'   => 'nullable|string',
-            'award'     => 'nullable|string',
-            'position'  => 'nullable|string|max:255',
-            'status'    => 'required|in:0,1',
-        ]);
+        // $avatarName = $member->avatar;
+        // if ($request->hasFile('avatar')) {
+        //     // 1. Xóa file cũ (nếu có)
+        //     if ($member->avatar) {
+        //         File::delete(public_path('upload/member/' . $member->avatar));
+        //     }
+        //     // 2. Upload file mới
+        //     $file = $request->file('avatar');
+        //     $avatarName = time() . '_' . $file->getClientOriginalName();
+        //     $file->move(public_path('upload/member'), $avatarName);
+        // }
 
-        $avatarName = $member->avatar;
-
-        if ($request->hasFile('avatar')) {
-            // 1. Xóa file cũ (nếu có)
-            if ($member->avatar) {
-                File::delete(public_path('upload/member/' . $member->avatar));
-            }
-
-            // 2. Upload file mới
-            $file = $request->file('avatar');
-            $avatarName = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('upload/member'), $avatarName);
-        }
-
+        $avatarName = $request->avatar ?: $member->avatar;
         $member->update([
             'name'      => $request->name,
             'avatar'    => $avatarName,
