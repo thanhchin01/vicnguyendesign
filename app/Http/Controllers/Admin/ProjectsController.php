@@ -113,9 +113,9 @@ class ProjectsController extends Controller
         ]);
 
         if ($request->gallery) {
-            $project->images()->delete();
+            $project->project_image()->delete();
             foreach (json_decode($request->gallery, true) as $i => $img) {
-                $project->images()->create([
+                $project->project_image()->create([
                     'image' => $img,
                     'order' => $i
                 ]);

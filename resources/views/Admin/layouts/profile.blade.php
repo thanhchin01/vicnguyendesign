@@ -117,7 +117,7 @@
                             <div class="mb-3">
                                 <label for="current_password" class="form-label">Current Password</label>
                                 <div class="input-group">
-                                    <input type="password" class="form-control" id="current_password" name="current_password">
+                                    <input type="password" class="form-control" id="current_password" name="current_password" required>
                                     <button class="btn btn-outline-secondary" type="button"
                                         onclick="togglePassword('current_password')">
                                         <i class="bi bi-eye"></i>
@@ -128,7 +128,7 @@
                                 <div class="col-md-6">
                                     <label for="new_password" class="form-label">New Password</label>
                                     <div class="input-group">
-                                        <input type="password" name="new_password" class="form-control" id="new_password">
+                                        <input type="password" name="new_password" class="form-control" id="new_password" required>
                                         <button class="btn btn-outline-secondary" type="button"
                                             onclick="togglePassword('new_password')">
                                             <i class="bi bi-eye"></i>
@@ -138,7 +138,7 @@
                                 <div class="col-md-6">
                                     <label for="new_password_confirmation" class="form-label">Confirm New Password</label>
                                     <div class="input-group">
-                                        <input type="password" name="new_password_confirmation" class="form-control" id="new_password_confirmation">
+                                        <input type="password" name="new_password_confirmation" class="form-control" id="new_password_confirmation" required>
                                         <button class="btn btn-outline-secondary" type="button"
                                             onclick="togglePassword('new_password_confirmation')">
                                             <i class="bi bi-eye"></i>

@@ -1826,3 +1826,38 @@ window.selectImageUrl = function () {
         }
     });
 };
+
+
+// resources/js/admin.js
+window.selectGallery = function (
+    inputId = 'gallery',
+    previewId = 'gallery-preview'
+) {
+    CKFinder.popup({
+        chooseFiles: true,
+        width: 800,
+        height: 600,
+
+        onInit: function (finder) {
+            finder.on('files:choose', function (evt) {
+                let files = evt.data.files.toArray();
+                let urls = [];
+                let html = '';
+
+                files.forEach(file => {
+                    let url = file.getUrl();
+                    urls.push(url);
+
+                    html += `
+                        <div class="col-md-3 mb-3">
+                            <img src="${url}" class="img-fluid rounded border">
+                        </div>
+                    `;
+                });
+
+                document.getElementById(inputId).value = JSON.stringify(urls);
+                document.getElementById(previewId).innerHTML = html;
+            });
+        }
+    });
+};

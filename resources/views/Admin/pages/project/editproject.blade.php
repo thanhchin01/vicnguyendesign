@@ -106,32 +106,3 @@
         </div>
     </div>
 @endsection
-<script>
-    function selectGallery() {
-        CKFinder.popup({
-            chooseFiles: true,
-            width: 800,
-            height: 600,
-
-            onInit: function(finder) {
-                finder.on('files:choose', function(evt) {
-                    let files = evt.data.files.toArray();
-                    let urls = [];
-                    let html = '';
-
-                    files.forEach(file => {
-                        urls.push(file.getUrl());
-                        html += `
-                        <div class="col-md-3 mb-3">
-                            <img src="${file.getUrl()}" class="img-fluid rounded border">
-                        </div>
-                    `;
-                    });
-
-                    document.getElementById('gallery').value = JSON.stringify(urls);
-                    document.getElementById('gallery-preview').innerHTML = html;
-                });
-            }
-        });
-    }
-</script>
