@@ -39,55 +39,62 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
                         aria-labelledby="pills-profile-tab" tabindex="0">
-                        <form>
+                        <form action="{{ route('admin.update.profile') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <h5 class="mb-3">User Details</h5>
                                     <div class="mt-3">
                                         <label for="fullname" class="form-label">Full name</label>
                                         <input type="text" class="form-control" id="fullname"
-                                            value="{{ $admin->fullname }}">
+                                            value="{{ old('fullname', $admin->fullname) }}" name="fullname">
                                     </div>
                                     <div class="mt-3">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email"
-                                            value="{{ $admin->email }}">
+                                            value="{{ old('email', $admin->email) }}" name="email">
                                     </div>
-                                     <div class="mt-3">
+                                    <div class="mt-3">
                                         <label for="username" class="form-label">Username</label>
                                         <input type="text" class="form-control" id="username"
-                                            value="{{ $admin->username }}">
+                                            value="{{ old('username', $admin->username) }}" name="username">
                                     </div>
                                     <div class="mt-3">
                                         <label for="phone" class="form-label">Phone</label>
                                         <input type="phone" class="form-control" id="phone"
-                                            value="{{ $admin->phone }}">
+                                            value="{{ old('phone', $admin->phone) }}" name="phone">
                                     </div>
-                                     <div class="mt-3">
+                                    <div class="mt-3">
                                         <label for="gender" class="form-label">Gender</label>
-                                        <input type="text" class="form-control" id="gender"
-                                            value="{{ $admin->gender }}">
+                                        <select class="form-control" name="gender" id="gender" required>
+                                            <option value="1" {{ old('gender', $admin->gender) == '1' ? 'selected' : '' }}>Nam
+                                            </option>
+                                            <option value="0" {{ old('gender', $admin->gender) == '0' ? 'selected' : '' }}>Nữ
+                                            </option>
+                                        </select>
                                     </div>
                                     <div class="mt-3">
                                         <label for="date_of_birth" class="form-label">Birthday</label>
                                         <input type="date" class="form-control" id="date_of_birth"
-                                            value="{{ $admin->date_of_birth }}">
+                                            value="{{ old('date_of_birth', $admin->date_of_birth) }}" name="date_of_birth">
                                     </div>
                                     <div style="height: 1.5rem;"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <h5 class="mb-3">Avatar</h5>
-
                                     <div class="d-flex flex-column align-items-center justify-content-center h-100">
                                         <div class="text-center">
-                                            <img src="{{ $admin->avatar ? asset('storage/' . $admin->avatar) : asset('path/to/default/avatar.png') }}"
+                                            <img id="preview-avatar" src="{{ old('avatar', $admin->avatar) }}" name="avatar"
                                                 class="rounded-circle mb-2" alt="Avatar"
-                                                style="width: 100px; height: 100px; object-fit: cover;">
+                                                style="width: 250px; height: 250px; object-fit: cover;">
+                                            <input type="hidden" name="avatar" id="avatar"
+                                                value="{{ old('avatar', $admin->avatar) }}">
+
                                             <div class="d-flex flex-column align-items-center">
-                                                <label for="avatarUpload" class="text-primary small fw-bold"
-                                                    style="cursor: pointer;">Choose image</label>
-                                                <input type="file" id="avatarUpload" class="d-none">
-                                                <small class="text-muted">JPG, PNG, kích thước tối đa 2MB.</small>
+                                                <button class="btn btn-secondary" type="button" style="cursor: pointer;"
+                                                    onclick="selectAvatar()">Choose image
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -101,36 +108,39 @@
                             </div>
                         </form>
                     </div>
+                    {{-- Password --}}
                     <div class="tab-pane fade" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab"
                         tabindex="0">
-                        <form>
+                        <form action="{{ route('admin.profile.changepassword') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+
                             <div class="mb-3">
-                                <label for="currentPassword" class="form-label">Current Password</label>
+                                <label for="current_password" class="form-label">Current Password</label>
                                 <div class="input-group">
-                                    <input type="password" class="form-control" id="currentPassword">
+                                    <input type="password" class="form-control" id="current_password" name="current_password">
                                     <button class="btn btn-outline-secondary" type="button"
-                                        onclick="togglePassword('currentPassword')">
+                                        onclick="togglePassword('current_password')">
                                         <i class="bi bi-eye"></i>
                                     </button>
                                 </div>
                             </div>
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label for="newPassword" class="form-label">New Password</label>
+                                    <label for="new_password" class="form-label">New Password</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control" id="newPassword">
+                                        <input type="password" name="new_password" class="form-control" id="new_password">
                                         <button class="btn btn-outline-secondary" type="button"
-                                            onclick="togglePassword('newPassword')">
+                                            onclick="togglePassword('new_password')">
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                                    <label for="new_password_confirmation" class="form-label">Confirm New Password</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control" id="confirmNewPassword">
+                                        <input type="password" name="new_password_confirmation" class="form-control" id="new_password_confirmation">
                                         <button class="btn btn-outline-secondary" type="button"
-                                            onclick="togglePassword('confirmNewPassword')">
+                                            onclick="togglePassword('new_password_confirmation')">
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
@@ -147,3 +157,19 @@
         </div>
     </div>
 @endsection
+{{-- Hiển thị mật khẩu --}}
+<script>
+    function togglePassword(id) {
+        const input = document.getElementById(id);
+        const icon = input.nextElementSibling.querySelector('i');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('bi-eye');
+            icon.classList.add('bi-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.remove('bi-eye-slash');
+            icon.classList.add('bi-eye');
+        }
+    }
+</script>

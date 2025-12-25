@@ -10,7 +10,11 @@ class DesignRequests extends Model
     protected $table = 'design_requests';
 
     protected $fillable = [
-        'contacts_id',
+        'fullname',
+        'email',
+        'job',
+        'age',
+        'phone',
         'project_type',
         'area',
         'scale',

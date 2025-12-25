@@ -35,15 +35,12 @@
                         <label for="title" class="form-label">Tiêu đề</label>
                         <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $news->title) }}">
                     </div>
-                    <div class="mb-3">
-                        <label for="slug" class="form-label">Slug</label>
-                        <input type="text" class="form-control" id="slug" name="slug" value="{{ old('slug', $news->slug) }}">
-                    </div>
                     <label for="" class="form-label">Hình ảnh</label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="image" name="image">
-                        <label class="input-group-text" for="image">Upload</label>
+                        <input type="text" class="form-control" id="image" name="image">
+                        <button type="button" class="btn btn-secondary" onclick="selectImage()" for="image">Upload</button>
                     </div>
+                    <img id="preview-image" style="max-width: 200px; display:none; margin-top: 10px">
                     <div class="mb-3">
                         <label for="sumary" class="form-label">Mô tả ngắn</label>
                         <input type="text" class="form-control" id="sumary" name="sumary" value="{{ old('sumary', $news->sumary) }}">

@@ -2,7 +2,7 @@
         <!--begin::Sidebar Brand-->
         <div class="sidebar-brand">
           <!--begin::Brand Link-->
-          <a href="../../index.html" class="brand-link">
+          <a href="{{ route('admin.admin.home') }}" class="brand-link">
             <!--begin::Brand Image-->
             {{-- <img src="{{ asset('assect/logo/2.png') }}" alt="AdminLTE Logo" class="brand-image opacity-75 shadow"> --}}
             <!--end::Brand Image-->
@@ -52,6 +52,12 @@
                 <a href="{{ url('admin/notice') }}" class="nav-link">
                   <i class="fa-solid fa-phone-flip"></i>
                   <p>Notice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('admin/contact') }}" class="nav-link">
+                  <i class="fa-regular fa-address-book"></i>
+                  <p>Contact</p>
                 </a>
               </li>
               {{-- <li class="nav-item">
@@ -218,7 +224,6 @@
                   </li>
                 </ul>
               </li>
-
               <li class="nav-header">EXAMPLES</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -283,7 +288,6 @@
                   </li>
                 </ul>
               </li>
-
               <li class="nav-header">DOCUMENTATIONS</li>
               <li class="nav-item">
                 <a href="../../docs/introduction.html" class="nav-link">
@@ -367,7 +371,6 @@
                   <p>License</p>
                 </a>
               </li>
-
               <li class="nav-header">MULTI LEVEL EXAMPLE</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -433,7 +436,6 @@
                   <p>Level 1</p>
                 </a>
               </li>
-
               <li class="nav-header">LABELS</li>
               <li class="nav-item">
                 <a href="#" class="nav-link">

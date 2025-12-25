@@ -31,6 +31,8 @@ class DatabaseSeeder extends Seeder
             NewsCategorySeeder::class,
             NewsSeeder::class,
             ProjectCategorySeeder::class,
+            ProjectSeeder::class,
+            ProjectImageSeeder::class,
             ImageAlbumSeeder::class,
             ImageSeeder::class,
             MemberSeeder::class,

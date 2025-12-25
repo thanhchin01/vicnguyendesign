@@ -1660,22 +1660,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-//Chuyển form
-function togglePassword(id) {
-    const input = document.getElementById(id);
-    const icon = input.nextElementSibling.querySelector('i');
-    if (input.type === 'password') {
-        input.type = 'text';
-        icon.classList.remove('bi-eye');
-        icon.classList.add('bi-eye-slash');
-    } else {
-        input.type = 'password';
-        icon.classList.remove('bi-eye-slash');
-        icon.classList.add('bi-eye');
-    }
-}
-
 // Login Admin
 const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
 const Default = {
@@ -1749,37 +1733,9 @@ CKEDITOR.replace('content', {
     filebrowserUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files'
 });
 
-function selectImage() {
-    CKFinder.popup({
-        chooseFiles: true,
-        onInit: function (finder) {
-            finder.on('files:choose', function (evt) {
-                var file = evt.data.files.first();
-                var url = file.getUrl();
-
-                // gán vào input
-                document.getElementById('image').value = url;
-
-                // hiển thị preview
-                const preview = document.getElementById('preview-image');
-                preview.src = url;
-                preview.style.display = 'block';
-            });
-
-            finder.on('file:choose:resizedImage', function (evt) {
-                var url = evt.data.resizedUrl;
-                document.getElementById('image').value = url;
-
-                const preview = document.getElementById('preview-image');
-                preview.src = url;
-                preview.style.display = 'block';
-            });
-        }
-    });
-}
 
 
-
+//CKfinder
 window.selectImage = function () {
     CKFinder.popup({
         chooseFiles: true,
@@ -1834,6 +1790,36 @@ window.selectAvatar = function () {
                 document.getElementById('avatar').value = fileUrl;
 
                 const preview = document.getElementById('preview-avatar');
+                preview.src = fileUrl;
+                preview.style.display = 'block';
+            });
+        }
+    });
+};
+
+window.selectImageUrl = function () {
+    CKFinder.popup({
+        chooseFiles: true,
+        width: 800,
+        height: 600,
+        onInit: function (finder) {
+
+            finder.on('files:choose', function (evt) {
+                const fileUrl = evt.data.files.first().getUrl();
+
+                document.getElementById('image_url').value = fileUrl;
+
+                const preview = document.getElementById('preview-image_url');
+                preview.src = fileUrl;
+                preview.style.display = 'block';
+            });
+
+            finder.on('file:choose:resizedImage', function (evt) {
+                const fileUrl = evt.data.resizedUrl;
+
+                document.getElementById('image_url').value = fileUrl;
+
+                const preview = document.getElementById('preview-image_url');
                 preview.src = fileUrl;
                 preview.style.display = 'block';
             });

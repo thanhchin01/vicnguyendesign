@@ -49,33 +49,29 @@
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Tiêu đề</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                            value="{{ old('title') }}">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                            name="title" value="{{ old('title') }}">
                     </div>
-                    <div class="mb-3">
-                        <label for="slug" class="form-label">Slug</label>
-                        <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                            value="{{ old('slug') }}">
-                    </div>
-                    <label for="" class="form-label">Hình ảnh</label>
+                    <label class="form-label">Hình ảnh</label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*">
-                        <label class="input-group-text" for="image">Upload</label>
+                        <input type="text" class="form-control @error('image') is-invalid @enderror" id="image"
+                            name="image" accept="image/*">
+                        <button type="button" class="btn btn-secondary" onclick="selectImage()" for="image">Upload</button>
                     </div>
+                    <img id="preview-image" style="max-width: 200px; display:none; margin-top: 10px">
                     <div class="mb-3">
                         <label for="sumary" class="form-label">Mô tả</label>
-                        <input type="text" class="form-control @error('sumary') is-invalid @enderror" id="sumary" name="sumary"
-                            value="{{ old('sumary') }}">
+                        <input type="text" class="form-control @error('sumary') is-invalid @enderror" id="sumary"
+                            name="sumary" value="{{ old('sumary') }}">
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Ngày tạo</label>
-                        <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date"
-                            value="{{ old('date') }}">
+                        <input type="date" class="form-control @error('date') is-invalid @enderror" id="date"
+                            name="date" value="{{ old('date') }}">
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Nội dung</label>
                         <textarea name="content" id="editor" rows="10" class="form-control @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
-
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Danh mục</label>
@@ -93,12 +89,12 @@
                     </div>
             </div>
             <!--begin::Footer-->
-                <div class="card-footer">
-                    <div class="d-flex justify-content-end ">
+            <div class="card-footer">
+                <div class="d-flex justify-content-end ">
                     <button type="submit" class="btn btn-primary me-2">Create</button>
                     <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Hủy </a>
                 </div>
-                </div>
+            </div>
             <!--end::Footer-->
             </form>
             <!--end::Form-->
@@ -106,4 +102,3 @@
         </div>
     </div>
 @endsection
-

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('date')->nullable();
+            $table->date('date')->nullable();
             $table->text('sumary')->nullable();
             $table->longText('content');
             $table->foreignId('created_by')->constrained('admins');

@@ -26,16 +26,6 @@
             </div>
             <!--end::Header-->
             <div class="card-body">
-                {{-- Hiển thị lỗi Validation --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <!--begin::Form-->
                 <form action="{{ route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -46,17 +36,14 @@
                             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
                                 name="title" value="{{ old('title') }}">
                         </div>
-                        <div class="mb-3">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug"
-                                name="slug" value="{{ old('slug') }}">
-                        </div>
                         <label for="image_url" class="form-label">Hình đại diện</label>
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control @error('image_url') is-invalid @enderror" id="image_url"
-                                name="image_url" accept="image/*">
-                            <label class="input-group-text" for="image_url">Upload</label>
+                            <input type="text" class="form-control @error('image_url') is-invalid @enderror"
+                                id="image_url" name="image_url" accept="image/*">
+                            <button type="button" class="btn btn-secondary" onclick="selectImageUrl()"
+                                for="image_url">Upload</button>
                         </div>
+                        <img id="preview-image_url" style="max-width: 200px; display:none; margin-top: 10px">
                         <div class="mb-3">
                             <label for="address" class="form-label">Địa chỉ</label>
                             <input type="text" class="form-control @error('address') is-invalid @enderror" id="address"
@@ -74,20 +61,21 @@
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Mô tả</label>
-                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30"
-                                rows="10">{{ old('description') }}</textarea>
+                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
+                                cols="30" rows="10">{{ old('description') }}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="team_design" class="form-label">Thành viên thiết kế</label>
-                            <input type="text" class="form-control @error('team_design') is-invalid @enderror" id="team_design"
-                                name="team_design" value="{{ old('team_design') }}">
+                            <input type="text" class="form-control @error('team_design') is-invalid @enderror"
+                                id="team_design" name="team_design" value="{{ old('team_design') }}">
                         </div>
-                        <label for="" class="form-label">Hình ảnh</label>
-                        <div class="input-group mb-3">
-                            <input type="file" class="form-control"
-                                id="inputGroupFile02" name="images[]" multiple>
-                            <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                        </div>
+                        <label class="form-label">Hình ảnh dự án</label>
+                        <button type="button" class="btn btn-outline-primary mb-3 mt-3" onclick="selectGallery()">
+                            Chọn nhiều ảnh
+                        </button>
+                        <input type="hidden" name="gallery" id="gallery">
+                        <div class="row" id="gallery-preview"></div>
+
                         <div class="mb-3">
                             <label for="category_id" class="form-label">Danh mục</label>
                             <select class="form-control @error('category_id') is-invalid @enderror" name="category_id"
@@ -104,7 +92,8 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="status" class="form-label">Trạng thái <span class="text-danger">*</span></label>
+                            <label for="status" class="form-label">Trạng thái <span
+                                    class="text-danger">*</span></label>
                             <select class="form-control" name="status" id="status">
                                 <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Hoàn thành</option>
                                 <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Chưa hoàn thành
@@ -124,3 +113,32 @@
         </div>
     </div>
 @endsection
+<script>
+    function selectGallery() {
+        CKFinder.popup({
+            chooseFiles: true,
+            width: 800,
+            height: 600,
+
+            onInit: function(finder) {
+                finder.on('files:choose', function(evt) {
+                    let files = evt.data.files.toArray();
+                    let urls = [];
+                    let html = '';
+
+                    files.forEach(file => {
+                        urls.push(file.getUrl());
+                        html += `
+                        <div class="col-md-3 mb-3">
+                            <img src="${file.getUrl()}" class="img-fluid rounded border">
+                        </div>
+                    `;
+                    });
+
+                    document.getElementById('gallery').value = JSON.stringify(urls);
+                    document.getElementById('gallery-preview').innerHTML = html;
+                });
+            }
+        });
+    }
+</script>

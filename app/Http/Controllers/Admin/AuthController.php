@@ -53,17 +53,13 @@ class AuthController extends Controller
         if (Auth::guard('admin')->attempt($credentials, $remember)) {
             // Đăng nhập thành công
             $request->session()->regenerate();
-
             return redirect()->intended(route('admin.admin.home')) // Chuyển hướng đến dashboard
                              ->with('success', 'Đăng nhập thành công! Xin chào ' . Auth::guard('admin')->user()->fullname);
         }
 
-        // 4. Đăng nhập thất bại
-        // toastr()->error('Username hoặc mật khẩu không chính xác. Vui lòng thử lại');
-        // return back()->withInput($request->only('username'));
         return back()->withErrors([
             'username' => 'Username hoặc mật khẩu không chính xác. Vui lòng thử lại',
-        ])->withInput($request->only('username')); // Giữ lại email trên form
+        ])->withInput($request->only('username')); // Giữ lại username trên form
     }
 
     //Logout

@@ -37,16 +37,12 @@
                         <input type="text" class="form-control" id="title" name="title"
                             value="{{ old('title', $project->title) }}">
                     </div>
-                    <div class="mb-3">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control" id="slug"
-                                name="slug" value="{{ old('slug', $project->slug) }}">
-                        </div>
                     <label for="image_url" class="form-label">Hình ảnh</label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="image_url" name="image_url">
-                        <label class="input-group-text" for="image_url">Upload</label>
+                        <input type="text" class="form-control" id="image_url" name="image_url" value="{{ old('image_url', $project->image_url) }}">
+                        <button type="button" class="btn btn-secondary" onclick="selectImageUrl()" for="image_url">Upload</button>
                     </div>
+                    <img id="preview-image_url" style="max-width: 200px; display:none; margin-top: 10px">
                     <div class="mb-3">
                         <label for="address" class="form-label">Địa chỉ</label>
                         <input type="text" class="form-control" id="address" name="address"
@@ -71,6 +67,12 @@
                         <input type="text" class="form-control" id="team_design" name="team_design"
                             value="{{ old('team_design', $project->team_design) }}">
                     </div>
+                    <label class="form-label">Hình ảnh dự án</label>
+                        <button type="button" class="btn btn-outline-primary mb-3 mt-3" onclick="selectGallery()">
+                            Chọn nhiều ảnh
+                        </button>
+                        <input type="hidden" name="gallery" id="gallery">
+                        <div class="row" id="gallery-preview"></div>
                     <div class="mb-3">
                         <label for="category_id" class="form-label">Danh mục</label>
                         <select class="form-control" name="category_id" id="category_id">
@@ -104,3 +106,32 @@
         </div>
     </div>
 @endsection
+<script>
+    function selectGallery() {
+        CKFinder.popup({
+            chooseFiles: true,
+            width: 800,
+            height: 600,
+
+            onInit: function(finder) {
+                finder.on('files:choose', function(evt) {
+                    let files = evt.data.files.toArray();
+                    let urls = [];
+                    let html = '';
+
+                    files.forEach(file => {
+                        urls.push(file.getUrl());
+                        html += `
+                        <div class="col-md-3 mb-3">
+                            <img src="${file.getUrl()}" class="img-fluid rounded border">
+                        </div>
+                    `;
+                    });
+
+                    document.getElementById('gallery').value = JSON.stringify(urls);
+                    document.getElementById('gallery-preview').innerHTML = html;
+                });
+            }
+        });
+    }
+</script>

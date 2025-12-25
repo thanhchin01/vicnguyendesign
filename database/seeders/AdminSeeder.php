@@ -22,7 +22,7 @@ class AdminSeeder extends Seeder
             'email'    => 'vicnguyen@gmail.com',
             'password' => Hash::make('12345678'),
             'phone'    => '0123456789',
-            'avatar'   => asset('assect/avatar/1.png'),
+            'avatar'   => '/ckfinder/userfiles/files/member/1.png',
             'gender'   => 1,
             'date_of_birth' => '1990-01-12'
         ]);

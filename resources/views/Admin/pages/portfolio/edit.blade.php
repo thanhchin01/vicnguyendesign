@@ -87,36 +87,3 @@
         </div>
     </div>
 @endsection
-<script src="/ckfinder/ckfinder.js"></script>
-
-<script>
-    function selectImage() {
-        CKFinder.popup({
-            chooseFiles: true,
-            width: 800,
-            height: 600,
-            onInit: function (finder) {
-
-                finder.on('files:choose', function (evt) {
-                    var fileUrl = evt.data.files.first().getUrl();
-
-                    document.getElementById('image').value = fileUrl;
-
-                    let preview = document.getElementById('preview-image');
-                    preview.src = fileUrl;
-                    preview.style.display = 'block';
-                });
-
-                finder.on('file:choose:resizedImage', function (evt) {
-                    var fileUrl = evt.data.resizedUrl;
-
-                    document.getElementById('image').value = fileUrl;
-
-                    let preview = document.getElementById('preview-image');
-                    preview.src = fileUrl;
-                    preview.style.display = 'block';
-                });
-            }
-        });
-    }
-</script>

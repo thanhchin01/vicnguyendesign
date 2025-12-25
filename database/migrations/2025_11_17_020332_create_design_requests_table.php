@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('design_requests', function (Blueprint $table) {
             $table->id();
-            $table->integer('contacts_id');
+            $table->string('fullname');
+            $table->string('email');
+            $table->string('job')->nullable();
+            $table->string('age')->nullable();
+            $table->string('phone');
             $table->string('project_type');
             $table->string('area');
             $table->string('scale');
@@ -21,12 +25,12 @@ return new class extends Migration
             $table->string('investment_cost'); // Nhà ở – Chi phí dự trù đầu tư
             $table->string('people'); // số người sinh hoạt
             $table->string('expected_rooms'); //Số phòng mong muốn
-            $table->string('other_construction'); //Công trình khác
-            $table->string('function_description'); //Mô tả chức năng
+            $table->string('other_construction')->nullable(); //Công trình khác
+            $table->string('function_description')->nullable(); //Mô tả chức năng
             $table->string('design_speed'); //Tiến độ mong muốn thiết kế
             $table->string('complete_speed'); //Tiến độ mong muốn hoàn thiện
-            $table->string('habits'); //Sở thích thói quen
-            $table->string('referral_source'); //Vì sao biết VIC
+            $table->string('habits')->nullable(); //Sở thích thói quen
+            $table->string('content')->nullable(); //Vì sao biết VIC
             $table->timestamps();
         });
     }

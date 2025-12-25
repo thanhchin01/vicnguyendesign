@@ -26,7 +26,8 @@
         <div class="card-header">
             <div class=" d-flex justify-content-between">
                 <form class="d-flex" role="search" action="{{ route('admin.news.index') }}" method="GET">
-                    <input class="form-control me-2" type="search" placeholder="Search" name="keyword" value="{{ request('keyword') }}">
+                    <input class="form-control me-2" type="search" placeholder="Search" name="keyword"
+                        value="{{ request('keyword') }}">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
                 <a href="{{ route('admin.news.create') }}" class="btn action-item btn-primary" tabindex="0"
@@ -64,8 +65,8 @@
                         </td>
                         <td class="text-center">
                             @if ($new->image)
-                                <img style="width: 120px; height: 120px; object-fit: cover;"
-                                    src="{{ asset('upload/news/' . $new->image) }}" alt="{{ $new->title }}"
+                                <img style="width: 120px; height: 120px; object-fit: cover;" src="{{ $new->image }}"
+                                    alt="{{ $new->title }}"
                                     onerror="this.onerror=null;this.src='https://placehold.co/120x120/E0E0E0/333333?text=No+Img'">
                             @else
                                 <img style="width: 120px; height: 120px; object-fit: cover;"
@@ -75,7 +76,8 @@
                         <td class="text-center"><span class="badge text-bg-primary">Xem nội dung</span></td>
                         <td class="text-center">{{ optional(\Carbon\Carbon::parse($new->date))->format('d/m/Y') }}</td>
                         <td class="text-center"><span class="badge text-bg-primary">Xem nội dung</span></td>
-                        <td class="text-center">{{ $new->NewsCategories ? $new->NewsCategories->name : 'Chưa có danh mục' }}</td>
+                        <td class="text-center">
+                            {{ $new->NewsCategories ? $new->NewsCategories->name : 'Chưa có danh mục' }}</td>
                         <td class="text-center">{{ $new->author ? $new->author->fullname : 'Chưa xác định' }}</td>
                         <td class="text-center">
                             <div class="btn-group" role="group" aria-label="Basic action group">
@@ -84,7 +86,8 @@
                                     <i class="fas fa-edit"></i>
                                     Sửa
                                 </a>
-                                <form action="{{ route('admin.news.destroy', $new->slug) }}" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa tin tức này chứ?');">
+                                <form action="{{ route('admin.news.destroy', $new->slug) }}" method="POST"
+                                    onsubmit="return confirm('Bạn có chắc chắn muốn xóa tin tức này chứ?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" title="Xóa">
@@ -102,5 +105,8 @@
                 @endforelse
             </tbody>
         </table>
+        <div class="mt-3">
+            {{ $news->links() }}
+        </div>
     </div>
 @endsection

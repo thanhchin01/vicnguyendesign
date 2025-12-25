@@ -1,4 +1,4 @@
-@extends('Admin.layouts.welcome')
+@extends('admin.layouts.welcome')
 
 @section('title', 'Home Page')
 
@@ -11,21 +11,17 @@
                 <div class="inner d-flex justify-content-between align-items-center">
                     <div>
                         {{-- Phần chữ --}}
-                        <h3>150</h3>
+                        <h3>{{ $totalProject }}</h3>
                         <p>Dự án đã hoàn thành</p>
                     </div>
-
                     {{-- Phần Icon (giữ nguyên kích thước FA-2x) --}}
                     <i class="fa-solid fa-list-check fa-2x"></i>
                 </div>
-
                 <a href="{{ url('admin/project') }}"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
                     More info <i class="bi bi-link-45deg"></i>
                 </a>
             </div>
-
-
             <!--end::Small Box Widget 1-->
         </div>
         <!--end::Col-->
@@ -35,7 +31,7 @@
                 <div class="inner d-flex justify-content-between align-items-center">
                     <div>
                         {{-- Phần chữ --}}
-                        <h3>10</h3>
+                        <h3>{{ $totalNews }}</h3>
                         <p>Tin tức</p>
                     </div>
                     <i class="fa-solid fa-newspaper fa-2x"></i>
@@ -54,7 +50,7 @@
                 <div class="inner d-flex justify-content-between align-items-center">
                     <div>
                         {{-- Phần chữ --}}
-                        <h3>10</h3>
+                        <h3>{{ $totalContact }}</h3>
                         <p>Liên hệ mới</p>
                     </div>
                     <i class="fa-solid fa-newspaper fa-2x"></i>
@@ -73,7 +69,7 @@
                 <div class="inner d-flex justify-content-between align-items-center">
                     <div>
                         {{-- Phần chữ --}}
-                        <h3>20</h3>
+                        <h3>{{ $totalMembers }}</h3>
                         <p>Thành viên</p>
                     </div>
                     <i class="fa-solid fa-users fa-2x"></i>
@@ -106,12 +102,14 @@
                 <!-- /.card-header -->
                 <div class="card-body p-0">
                     <div class="row text-center m-1">
-                        <div class="col-3 p-2">
-                            <img class="img-fluid rounded-circle" src="{{ asset('assect/avatar/1.png') }}" alt="User Image">
-                            <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
-                                Alexander Pierce
-                            </a>
-                        </div>
+                        @foreach ($members as $member)
+                            <div class="col-3 p-2">
+                                <img class="img-fluid rounded-circle" src="{{ $member->avatar }}" alt="User Image">
+                                <a class="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0" href="#">
+                                    {{ $member->name }}
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
                     <!-- /.users-list -->
                 </div>
@@ -152,66 +150,37 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <p class="">Nguyễn Văn A</p>
-                                    </td>
-                                    <td>nguyenvana@gmail.com</td>
-                                    <td class="text-center">
-                                        <span class="badge text-bg-success">Đọc</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="btn-group" role="group" aria-label="Basic action group">
-                                            <a href="{{ url('admin/details-notice') }}"
-                                                class="btn btn-primary btn-sm me-2" title="">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <button type="button" class="btn btn-danger btn-sm" title="Xóa">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="">Nguyễn Văn A</p>
-                                    </td>
-                                    <td>nguyenvana@gmail.com</td>
-                                    <td class="text-center">
-                                        <span class="badge text-bg-warning">Đã đọc</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="btn-group" role="group" aria-label="Basic action group">
-                                            <a href="{{ url('admin/details-notice') }}"
-                                                class="btn btn-primary btn-sm me-2" title="">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <button type="button" class="btn btn-danger btn-sm" title="Xóa">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="">Nguyễn Văn A</p>
-                                    </td>
-                                    <td>nguyenvana@gmail.com</td>
-                                    <td class="text-center">
-                                        <span class="badge text-bg-success">Đọc</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="btn-group" role="group" aria-label="Basic action group">
-                                            <a href="{{ url('admin/details-notice') }}"
-                                                class="btn btn-primary btn-sm me-2" title="">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <button type="button" class="btn btn-danger btn-sm" title="Xóa">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @forelse ($contact as $item)
+                                    <tr>
+                                        <td>
+                                            <p class="">{{ $item->fullname }}</p>
+                                        </td>
+                                        <td>{{ $item->email }}</td>
+                                        <td class="text-center">
+                                            @if ($item->status == 0)
+                                                <span class="badge text-bg-success">Đọc</span>
+                                            @else
+                                                <span class="badge text-bg-warning">Đã đọc</span>
+                                            @endif
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="btn-group" role="group" aria-label="Basic action group">
+                                                <a href="{{ route('admin.details', $item->id) }}"
+                                                    class="btn btn-primary btn-sm me-2" title="">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <form action="{{ route('admin.destroy', $item->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm" title="Xóa">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

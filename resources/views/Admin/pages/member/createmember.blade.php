@@ -1,4 +1,4 @@
-@extends('Admin.layouts.welcome')
+@extends('admin.layouts.welcome')
 
 @section('title', 'Create Member Page')
 
@@ -71,8 +71,8 @@
                     <div class="mb-3">
                         <label for="status" class="form-label">Trạng thái <span class="text-danger">*</span></label>
                         <select class="form-control" name="status" id="status" required>
-                            <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Đang làm</option>
-                            <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Đã nghỉ</option>
+                            <option value="1" {{ old('status') == '0' ? 'selected' : '' }}>Đang làm</option>
+                            <option value="0" {{ old('status') == '1' ? 'selected' : '' }}>Đã nghỉ</option>
                         </select>
                     </div>
                     <!--begin::Footer-->

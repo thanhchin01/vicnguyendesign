@@ -57,7 +57,7 @@
                         <td class="text-center">
                             @if ($project->image_url)
                                 <img style="width: 120px; height: 120px; object-fit: cover;"
-                                    src="{{ asset('upload/project/' . $project->image_url) }}" alt="{{ $project->title }}"
+                                    src="{{ $project->image_url }}" alt="{{ $project->title }}"
                                     onerror="this.onerror=null;this.src='https://placehold.co/120x120/E0E0E0/333333?text=No+Img'">
                             @else
                                 <img style="width: 120px; height: 120px; object-fit: cover;"
@@ -106,5 +106,8 @@
                 @endforelse
             </tbody>
         </table>
+         <div class="mt-3">
+            {{ $projects->links() }}
+        </div>
     </div>
 @endsection

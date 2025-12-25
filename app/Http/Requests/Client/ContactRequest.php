@@ -35,7 +35,6 @@ class ContactRequest extends FormRequest
         return [
             'fullname.required' => 'Vui lòng nhập tên của bạn',
             'email.required'    => 'Vui lòng nhập email của bạn',
-
         ];
     }
 }

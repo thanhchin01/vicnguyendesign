@@ -18,7 +18,7 @@ class ContactController extends Controller
                   ->orWhere('email', 'like', "%$keyword%");
         }
 
-        $contacts = $query->orderBy('id', 'asc')->paginate(5);
+        $contacts = $query->orderBy('id', 'asc')->paginate(4);
         return view('admin.pages.notice.notice', compact('contacts'));
     }
 

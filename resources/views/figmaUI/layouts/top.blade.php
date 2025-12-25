@@ -55,7 +55,7 @@
                     <li><a href="{{ url('new/address') }}"
                             class="block px-4 py-2 hover:text-red-600 transition {{ Request::is('new/address') ? 'text-red-500' : 'hover:text-red-500' }}">Địa
                             điểm</a></li>
-                    <li><a href="{{ url('new/contact') }}"
+                    <li><a href="{{ route('designrequest.index') }}"
                             class="block px-4 py-2 hover:text-red-600 transition {{ Request::is('new/contact') ? 'text-red-500' : 'hover:text-red-500' }}">Phiếu
                             thông tin</a>
                     </li>

@@ -14,7 +14,7 @@ class MemberSeeder extends Seeder
     public function run(): void
     {
         //
-        $basePath = 'ckfinder/userfiles/files/member/';
+        $basePath = '/ckfinder/userfiles/files/member/';
         Members::insert([
             [
                 'name'      => 'Vic Nguyen',

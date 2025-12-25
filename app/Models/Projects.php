@@ -26,10 +26,15 @@ class Projects extends Model
 
     const HOAN_THANH = 0;
     const CHUA_HOAN_THANH = 1;
-    
+
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function project_image()
+    {
+        return $this->hasMany(ProjectImage::class, 'project_id');
     }
 
     public function projects_categories()
@@ -40,11 +45,6 @@ class Projects extends Model
     public function members()
     {
         return $this->belongsToMany(Members::class, 'project_members', 'projects_id', 'members_id');
-    }
-
-    public function imgaes()
-    {
-        return $this->hasMany(ProjectImages::class);
     }
 
     public function author()
