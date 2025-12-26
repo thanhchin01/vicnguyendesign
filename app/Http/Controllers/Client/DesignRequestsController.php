@@ -38,6 +38,9 @@ class DesignRequestsController extends Controller
             'content'               => $request->content
         ]);
 
-        return back()->with('success', 'Gửi thông tin dự án thành công');
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Gửi liên hệ thành công'
+        ]);
     }
 }

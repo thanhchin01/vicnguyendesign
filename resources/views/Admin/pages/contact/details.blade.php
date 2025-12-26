@@ -94,12 +94,12 @@
                     <p class="h5">{{ $details->complete_speed }}</p>
                 </div>
                 <div class="col-lg-4 mb-3">
-                    <label for="" class="text-muted mb-1">Tiến độ mong muốn hoàn thiện
+                    <label for="" class="text-muted mb-1">Sở thích, thói quen
                     </label>
                     <p class="h5">{{ $details->habits }}</p>
                 </div>
                 <div class="col-lg-4 mb-3">
-                    <label for="" class="text-muted mb-1">Tiến độ mong muốn hoàn thiện
+                    <label for="" class="text-muted mb-1">Vì sao anh chị biết tới VIC
                     </label>
                     <p class="h5">{{ $details->content }}</p>
                 </div>

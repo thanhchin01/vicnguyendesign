@@ -27,17 +27,18 @@
 
         <!-- 🔹 Div 2: form -->
         <div class="p-4 container mx-auto mt-10 md:mt-20">
-            <form action="{{ route('contact.store') }}" method="POST">
+            {{-- action="{{ route('contact.store') }}" method="POST" --}}
+            <form id="contactForm">
                 @csrf
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="flex flex-col gap-4">
                         <label>Your name</label>
                         <input class="px-8 py-3 border border-white bg-transparent rounded-lg w-full" type="text"
-                            name="fullname" placeholder="Nhập tên của bạn" required>
+                            name="fullname" placeholder="Nhập tên của bạn">
                         <label>Email</label>
                         <input class="px-8 py-3 border border-white bg-transparent rounded-lg w-full" type="email"
-                            name="email" placeholder="Nhập email của bạn" required>
+                            name="email" placeholder="Nhập email của bạn">
                         <label>Object</label>
                         <input class="px-8 py-3 border border-white bg-transparent rounded-lg w-full" type="text"
                             name="object">
@@ -45,10 +46,9 @@
                     <div class="flex flex-col gap-4">
                         <label>Your message</label>
                         <textarea class="border border-white bg-transparent rounded-lg p-4 w-full" rows="10" name="message"
-                            placeholder="Nhập nội dung" required></textarea>
+                            placeholder="Nhập nội dung"></textarea>
                     </div>
                 </div>
-
                 <!-- Nút gửi căn giữa -->
                 <div class="flex justify-center mt-8">
                     <button type="submit"
@@ -58,6 +58,5 @@
                 </div>
             </form>
         </div>
-
     </div>
 </section>

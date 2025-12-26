@@ -41,11 +41,7 @@ Route::get('/about', function () {
     return view('pages/about');
 });
 
-// Route::get('/contact', function () {
-//     return view('pages/contact');
-// });
-// Route::post('contact', [ContactController::class, 'store'])->name('client.contact');
-Route::resource('contact', ContactController::class)->except(['show']);
+Route::resource('/contact', ContactController::class)->except(['show']);
 
 
 // ===== SITE MỚI =====
@@ -62,16 +58,13 @@ Route::prefix('new')->group(function () {
         return view('figmaUI.layouts.welcome');
     });
 
-    Route::get('/', function () {
-        return view('figmaUI.pages.splash');
-    })->name('new.splash');
+    // Route::get('/', function () {
+    //     return view('figmaUI.pages.splash');
+    // })->name('new.splash');
 
-    // Route::get('/project', function () {
-    //     return view('figmaUI.pages.project_home');
-    // });
-    // Route::get('/project/details-project', function () {
-    //     return view('figmaUI.pages.project_details');
-    // });
+    Route::get('/', function(){
+        return redirect()->route('client.project');
+    });
     Route::get('/project', [ProjectController::class, 'clientProject'])->name('client.project');
     Route::get('/project/details-project/{project:slug}', [ProjectController::class, 'detailsProject'])->name('details.project');
 
@@ -80,27 +73,15 @@ Route::prefix('new')->group(function () {
         return view('figmaUI.pages.studio');
     });
 
-    // Route::get('/member', function () {
-    //     return view('figmaUI.pages.member');
-    // });
     Route::get('member', [MembersController::class, 'clientMember']);
 
-    // Route::get('/news', function () {
-    //     return view('figmaUI.pages.news');
-    // });
     Route::get('/news', [NewsController::class, 'clientIndex'])->name('client.news');
     Route::get('/news/{news:slug}', [NewsController::class , 'detailsNews'])->name('details.news');
-    // Route::get('/news/details', function () {
-    //     return view('figmaUI.pages.news_details');
-    // });
 
     Route::get('/address', function () {
         return view('figmaUI.pages.address');
     });
 
-    // Route::get('/contact', function () {
-    //     return view('figmaUI.pages.contact');
-    // });
     Route::resource('/designrequest', DesignRequestsController::class)->except(['show']);
 });
 

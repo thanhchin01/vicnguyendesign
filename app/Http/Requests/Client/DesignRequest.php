@@ -24,7 +24,7 @@ class DesignRequest extends FormRequest
         return [
             //
             'fullname'               => 'required|string|max:225',
-            'email'                  => 'required|string|max:225',
+            'email'                  => 'required|email|max:225',
             'job'                    => 'nullable|string|max:225',
             'age'                    => 'nullable|string|max:225',
             'phone'                  => 'required|string|max:225',
@@ -41,6 +41,24 @@ class DesignRequest extends FormRequest
             'complete_speed'         => 'required|string|max:225',
             'habits'                 => 'nullable|string',
             'content'                => 'nullable|string'
+        ];
+    }
+    public function messages():array
+    {
+        return [
+            'fullname.required'        => 'Vui lòng nhập họ và tên',
+            'email.email'              => 'Email không hợp lệ',
+            'email.required'           => 'Vui lòng nhập email',
+            'phone.required'           => 'Vui lòng nhập số điện thoại',
+            'project_type.required'    => 'Bạn chưa nhập loại hình dự án',
+            'area.required'            => 'Bạn chưa nhập diện tích dự án',
+            'scale.required'           => 'Bạn chưa nhập quy mô dự án',
+            'location.required'        => 'Bạn chưa nhập địa điểm dự án',
+            'investment_cost.required' => 'Bạn chưa nhập chi phí dự trù',
+            'people.required'          => 'Bạn chưa nhập thông tin số người sinh hoạt',
+            'expected_rooms.required'  => 'Bạn chưa nhập số phòng chức năng mong muốn',
+            'design_speed.required'    => 'Bạn chưa nhập tiến độ thiết kế mong muốn',
+            'complete_speed.required'  => 'Bạn chưa nhập tiến độ hoàn thiện mong muốn',
         ];
     }
 }

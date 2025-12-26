@@ -26,7 +26,7 @@ class ContactRequest extends FormRequest
             'fullname'  => 'required|string|max:255',
             'email'     => 'required|email|max:255',
             'object'    => 'nullable|string|max:255',
-            'message'   => 'nullable',
+            'message'   => 'required',
         ];
     }
 
@@ -35,6 +35,8 @@ class ContactRequest extends FormRequest
         return [
             'fullname.required' => 'Vui lòng nhập tên của bạn',
             'email.required'    => 'Vui lòng nhập email của bạn',
+            'email.email'       => 'Email không hợp lệ',
+            'message.required'  => 'Message không được để trống'
         ];
     }
 }

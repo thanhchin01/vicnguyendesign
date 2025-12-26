@@ -6,7 +6,7 @@ window.Alpine = Alpine
 Alpine.start()
 
 // Hiển thị ảnh ở portfolio
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const allElements = Array.from(document.querySelectorAll('.fade-in-up'));
     const batchSize = 25; // số ảnh load mỗi lần
     let currentIndex = 0;
@@ -60,4 +60,119 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Load batch đầu tiên
     loadBatch();
+});
+
+
+
+//Load splash
+document.addEventListener('DOMContentLoaded', () => {
+    const splash = document.getElementById('splash');
+    if (!splash) return;
+    // Nếu splash đã hiển thị trong session này → ẩn luôn
+    if (sessionStorage.getItem('splashShown')) {
+        splash.classList.add('hidden');
+        return;
+    }
+    // Đánh dấu đã hiển thị splash
+    sessionStorage.setItem('splashShown', 'true');
+    // Hiển thị splash rồi ẩn sau 3s
+    setTimeout(() => {
+        splash.classList.add('opacity-0');
+
+        setTimeout(() => {
+            splash.classList.add('hidden');
+        }, 1000);
+    }, 3000);
+});
+
+
+
+//JS gửi liên hệ
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Sending...';
+        try {
+            const response = await fetch('/contact', {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': form.querySelector('[name=_token]').value,
+                    'Accept': 'application/json'
+                },
+                body: new FormData(form)
+            });
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw data;
+            }
+            toastr.success(data.message);
+
+            form.reset();
+        } catch (error) {
+            if (error.errors) {
+                Object.values(error.errors).flat().forEach(msg => {
+                    toastr.error(msg);
+                });
+            } else {
+                toastr.error('Có lỗi xảy ra, vui lòng thử lại');
+            }
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Send';
+        }
+    });
+});
+
+
+//JS liên hệ của site figma
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForms');
+    if (!form) return;
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Sending...';
+
+        try {
+            const response = await fetch('/new/designrequest', {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': form.querySelector('[name=_token]').value,
+                    'Accept': 'application/json'
+                },
+                body: new FormData(form)
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw data;
+            }
+            toastr.success(data.message);
+
+            form.reset();
+
+        } catch (error) {
+            if (error.errors) {
+                Object.values(error.errors).flat().forEach(msg => {
+                    toastr.error(msg);
+                });
+            } else {
+                toastr.error('Có lỗi xảy ra, vui lòng thử lại');
+            }
+
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Send';
+        }
+    });
 });
